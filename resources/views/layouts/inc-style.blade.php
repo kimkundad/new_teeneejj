@@ -62,6 +62,9 @@ body {
     color: #666;
     background: transparent;
 }
+.skiptranslate{
+  display: none;
+}
 @media only screen and (max-width:768px){
   .goog-te-gadget-simple .goog-te-menu-value{
     margin-top: -20px;
