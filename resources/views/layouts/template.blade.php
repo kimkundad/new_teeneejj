@@ -28,7 +28,7 @@
     @yield('stylesheet')
 
 </head>
-<body style="top:0 !important">
+<body class="bobo"style="">
 
 
 
