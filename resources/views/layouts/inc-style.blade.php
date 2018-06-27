@@ -63,7 +63,7 @@ body {
     background: transparent;
 }
 .skiptranslate{
-  
+
 }
 @media only screen and (max-width:768px){
   .goog-te-gadget-simple .goog-te-menu-value{
@@ -75,7 +75,7 @@ body {
   }
 }
 .bobo{
-  top:0 !important;
+
 }
 
 </style>
