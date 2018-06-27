@@ -75,7 +75,7 @@ body {
   }
 }
 .bobo{
-  top:0 px !important;
+  top:0 !important;
 }
 
 </style>
