@@ -10,23 +10,35 @@
               <div class="col-md-2 col-sm-3">
                   <h3>About</h3>
                   <ul>
-                      <li><a href="{{url('/presentation')}}">หมวดหมู่</a></li>
-                      <li><a href="{{url('/article')}}">บทความ</a></li>
+                      <li><a href="{{url('/presentation')}}">{{ trans('message.category') }}</a></li>
+                      <li><a href="{{url('/article')}}">{{ trans('message.article') }}</a></li>
 
 
-                       <li><a href="{{url('/contact_us')}}">ติดต่อเรา</a></li>
+                       <li><a href="{{url('/contact_us')}}">{{ trans('message.contact_us') }}</a></li>
                   </ul>
               </div>
               <div class="col-md-2 col-sm-3">
                   <h3>Discover</h3>
                   <ul>
-                      <li><a href="{{url('/history')}}">ความเป็นมาประวัติ</a></li>
-                      <li><a href="{{url('/directions')}}">เส้นทางการเดินทาง</a></li>
+                      <li><a href="{{url('/history')}}">{{ trans('message.history') }}</a></li>
+                      <li><a href="{{url('/directions')}}">{{ trans('message.directions') }}</a></li>
 
 
                   </ul>
-                
-
+                <h3>Languages</h3>
+                <select class="form-control" name="lang" id="lang">
+                            <option value="{{ URL::to('change/th') }}"
+                            @if(trans('message.lang') == 'ไทย')
+                            selected=""
+                            @endif
+                            >ภาษาไทย</option>
+                            <option value="{{ URL::to('change/en') }}" @if(trans('message.lang') == 'Eng')
+                            selected=""
+                            @endif>English</option>
+                            <option value="{{ URL::to('change/ch') }}" @if(trans('message.lang') == 'China')
+                            selected=""
+                            @endif>Chaina</option>
+                        </select>
               </div>
               <div class="col-md-4 col-sm-3">
                   <h3>Fanpage</h3>

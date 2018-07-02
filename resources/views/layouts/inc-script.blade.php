@@ -172,23 +172,15 @@ $('input').iCheck({
 
         </script>
 
-
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'th', includedLanguages: 'en,th,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-}
-</script>
-
-<script type="text/javascript">
-function googleTranslateElementInitTWO() {
-    new google.translate.TranslateElement({pageLanguage: 'th', includedLanguages: 'en,th,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_elementTWO');
-}
-</script>
-
-<script>
-if ($(window).width() < 630) {
-        document.write("<script type=\"text/javascript\" src=\"//translate.google.com/translate_a/element.js?cb=googleTranslateElementInitTWO\"><\/script>");
-    }else{
-        document.write("<script type=\"text/javascript\" src=\"//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit\"><\/script>");
-    }
+        <script>
+    $(function(){
+      // bind change event to select
+      $('#lang').on('change', function () {
+          var url = $(this).val(); // get selected value
+          if (url) { // require a URL
+              window.location = url; // redirect
+          }
+          return false;
+      });
+    });
 </script>

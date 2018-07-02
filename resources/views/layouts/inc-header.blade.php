@@ -24,7 +24,7 @@
                         <li>
                           @if (Auth::guest())
                           <div class="dropdown dropdown-access">
-                              <a href="{{url('login')}}" class="dropdown-toggle" id="access_link">Sign in</a>
+                              <a href="{{url('login')}}" class="dropdown-toggle" id="access_link">{{ trans('message.signin') }}</a>
 
                           </div><!-- End Dropdown access -->
                           @else
@@ -35,8 +35,8 @@
                           @endif
 
                         </li>
-                        <li><a href="{{url('wishlist')}}" id="wishlist_link">Wishlist</a></li>
-                        <li><div id="google_translate_element"></div></li>
+                        <li><a href="{{url('wishlist')}}" id="wishlist_link">{{ trans('message.wishlist') }}</a></li>
+                        <li>{{ trans('message.lang') }}</li>
                     </ul>
                 </div>
             </div><!-- End row -->
@@ -60,29 +60,29 @@
                     <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                     <ul>
                       <li>
-                          <a style="font-size: 15px;" href="{{url('/')}}">หน้าแรก </a>
+                          <a style="font-size: 15px;" href="{{url('/')}}">{{ trans('message.index') }} </a>
 
                       </li>
 
                       <li>
-                         <a style="font-size: 15px;" href="{{url('/presentation')}}">หมวดหมู่ </a>
+                         <a style="font-size: 15px;" href="{{url('/presentation')}}">{{ trans('message.category') }} </a>
 
                      </li>
                      <li>
-                         <a style="font-size: 15px;" href="{{url('/map')}}">Map </a>
+                         <a style="font-size: 15px;" href="{{url('/map')}}">{{ trans('message.map') }} </a>
 
                      </li>
                      <li>
-                       <a style="font-size: 15px;" href="{{url('/directions')}}">เส้นทางการเดินทาง </a>
+                       <a style="font-size: 15px;" href="{{url('/directions')}}">{{ trans('message.directions') }} </a>
 
                    </li>
                    <li>
-                      <a style="font-size: 15px;" href="{{url('/article')}}">บทความ </a>
+                      <a style="font-size: 15px;" href="{{url('/article')}}">{{ trans('message.article') }} </a>
 
                   </li>
 
                   <li>
-                     <a style="font-size: 15px;" href="{{url('/contact_us')}}">ติดต่อเรา  </a>
+                     <a style="font-size: 15px;" href="{{url('/contact_us')}}">{{ trans('message.contact_us') }}  </a>
 
                  </li>
 

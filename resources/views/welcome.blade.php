@@ -20,19 +20,19 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
                     <form name="search" method="GET" action="{{url('search')}}" enctype="multipart/form-data">
                       {{ csrf_field() }}
                     <div class="tab-pane active" id="tours">
-                    <h3 style="color:#444444; float:left;">ค้นหาสิ่งที่ต้องการ ใน ตลาดนัดสวนจตุจักร</h3>
+                    <h3 style="color:#444444; float:left;">{{ trans('message.title_search') }}</h3>
                       <div class="row">
                           <div class="col-md-12">
                               <div class="form-group">
 
-                                    <input type="text" class="form-control" id="firstname_booking" name="search" placeholder="ค้นหาสิ่งที่ต้องการในจตุจักร..." required="">
+                                    <input type="text" class="form-control" id="firstname_booking" name="search" placeholder="{{ trans('message.title_search') }}..." required="">
                                 </div>
                             </div>
 
                         </div><!-- End row -->
                         <!-- End row -->
 
-                        <button class="btn_1 green" type="submit"><i class="icon-search"></i>Search now</button>
+                        <button class="btn_1 green" type="submit"><i class="icon-search"></i>{{ trans('message.btn_search') }}</button>
                     </div><!-- End rab -->
                    </form>
 
@@ -50,9 +50,10 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 <div class="container margin_60">
 
   <div class="main_title">
-    <h2>ตลาดนัดสวน <span>จตุจักร</span> </h2>
+    <h2> <span>{{ trans('message.sub_title_home') }} </span> </h2>
+
     <br>
-    <p style="font-size:24px;">10 ร้านเสื้อยืดในจตุจักร ที่ยังไงก็ต้องเสียตัง</p>
+    <p style="font-size:24px;">{{ trans('message.sub_title_home_2') }}</p>
   </div>
 
   <div class="row">
@@ -103,7 +104,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
   <!-- End row -->
   <br>
   <p class="text-center nopadding">
-    <a href="#" class="btn_1 medium">เข้าชมแผงค้าทั้งหมด ({{$shop_count}})  </a>
+    <a href="#" class="btn_1 medium">{{ trans('message.total_shop') }} ({{$shop_count}})  </a>
   </p>
 </div>
 <!-- End container -->
@@ -111,12 +112,15 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 <div class="white_bg">
   <div class="container margin_60">
     <div class="main_title">
-      <h2>เว็บไซต์ <span>ที่นี่เจเจ</span> </h2>
+      <h2> <span>{{ trans('message.website_shop') }}</span> </h2>
       <br>
       <p style="font-size:24px;">
-        รวบรวมร้านค้าที่คัดเลือดมาแล้วอย่างดี จากทั้งหมด 8,000 ร้านค้า
+        {{ trans('message.website_shop_sup') }}
       </p>
     </div>
+
+    @if(trans('message.lang') == 'ไทย')
+
     <div class="row add_bottom_45">
       <div class="col-md-4 other_tours">
         <ul>
@@ -149,6 +153,82 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
         </ul>
       </div>
     </div>
+
+    @elseif(trans('message.lang') == 'Eng')
+
+    <div class="row add_bottom_45">
+      <div class="col-md-4 other_tours">
+        <ul>
+          @if($category1)
+            @foreach($category1 as $category1_1)
+          <li><a href="#"><i class="{{$category1_1->icon}}"></i>{{$category1_1->name_en}}<span class="other_tours_price">{{$category1_1->options}}</span></a>
+          </li>
+            @endforeach
+          @endif
+        </ul>
+      </div>
+      <div class="col-md-4 other_tours">
+        <ul>
+          @if($category2)
+            @foreach($category2 as $category2_2)
+          <li><a href="#"><i class="{{$category2_2->icon}}"></i>{{$category2_2->name_en}}<span class="other_tours_price">{{$category2_2->options}}</span></a>
+          </li>
+            @endforeach
+          @endif
+        </ul>
+      </div>
+      <div class="col-md-4 other_tours">
+        <ul>
+          @if($category3)
+            @foreach($category3 as $category3_3)
+          <li><a href="#"><i class="{{$category3_3->icon}}"></i>{{$category3_3->name_en}}<span class="other_tours_price">{{$category3_3->options}}</span></a>
+          </li>
+            @endforeach
+          @endif
+        </ul>
+      </div>
+    </div>
+
+    @else
+
+    <div class="row add_bottom_45">
+      <div class="col-md-4 other_tours">
+        <ul>
+          @if($category1)
+            @foreach($category1 as $category1_1)
+          <li><a href="#"><i class="{{$category1_1->icon}}"></i>{{$category1_1->name_cn}}<span class="other_tours_price">{{$category1_1->options}}</span></a>
+          </li>
+            @endforeach
+          @endif
+        </ul>
+      </div>
+      <div class="col-md-4 other_tours">
+        <ul>
+          @if($category2)
+            @foreach($category2 as $category2_2)
+          <li><a href="#"><i class="{{$category2_2->icon}}"></i>{{$category2_2->name_cn}}<span class="other_tours_price">{{$category2_2->options}}</span></a>
+          </li>
+            @endforeach
+          @endif
+        </ul>
+      </div>
+      <div class="col-md-4 other_tours">
+        <ul>
+          @if($category3)
+            @foreach($category3 as $category3_3)
+          <li><a href="#"><i class="{{$category3_3->icon}}"></i>{{$category3_3->name_cn}}<span class="other_tours_price">{{$category3_3->options}}</span></a>
+          </li>
+            @endforeach
+          @endif
+        </ul>
+      </div>
+    </div>
+
+    @endif
+
+
+
+
     <!-- End row -->
 
     <hr>
@@ -157,21 +237,21 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
                 <p>
                     <a href="{{url('history')}}"><img src="{{url('assets/img/1445871931-bus.jpg')}}" alt="Pic" class="img-responsive" style="margin-left: auto;margin-right: auto;"></a>
                 </p>
-                <h4><span>ประวัติความเป็นมาประวัติ</span> </h4>
+                <h4><span>{{trans('message.website_b1')}}</span> </h4>
                 </div>
             <div class="col-md-4 col-sm-6 text-center">
 
                 <p>
                     <a href="{{url('directions')}}"><img src="{{url('assets/img/1446997517-0rc002.jpg')}}" alt="Pic" class="img-responsive" style="margin-left: auto;margin-right: auto;"></a>
                 </p>
-                <h4><span>การเดินทางมายังตลาดนัดจตุจักร</span></h4>
+                <h4><span>{{trans('message.website_b2')}}</span></h4>
 
             </div>
             <div class="col-md-4 col-sm-6 text-center">
                 <p>
                     <a href="{{url('article')}}"><img src="{{url('assets/img/1446909591-JJMARKET 0311.jpg')}}" alt="Pic" class="img-responsive" style="margin-left: auto;margin-right: auto;"></a>
                 </p>
-                <h4><span>บทความน่ารู้</span> </h4>
+                <h4><span>{{trans('message.website_b3')}}</span> </h4>
 
             </div>
 
@@ -185,8 +265,8 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 <section class="parallax-window" data-parallax="scroll" data-image-src="{{url('assets/img/home_bg_1.jpg')}}" data-natural-width="1400" data-natural-height="470">
 <div class="parallax-content-1 magnific">
     <div>
-        <h3>ตลาดนัดสวนจตุจักร</h3>
-        <p>แหล่งรวบรวมสินค้าสำหรับคนทุกเพศทุกวัย เช่น เสื้อผ้า เครื่องประดับ สินค้าพื้นเมือง เครื่องจักสาน เฟอร์นิเจอร์ ไปจนถึงสัตว์เลี้ยง นอกจากนี้ยังจัดบริเวณเฉพาะสำหรับร้านค้าพันธุ์ไม้ดอกไม้ประดับชนิดต่างๆ ที่ใหญ่ที่สุดแห่งหนึ่งในกรุงเทพมหานคร</p>
+        <h3>{{ trans('message.sub_title_home') }}</h3>
+        <p>{{ trans('message.website_video') }}</p>
         <a href="https://www.youtube.com/watch?v=NxiMRHXSO2E" class="video"><i class="icon-play-circled2-1"></i></a>
     </div>
 </div>
@@ -196,10 +276,10 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 <div class="container margin_60">
 
   <div class="main_title">
-    <h2>เหตุผลที่ต้องเป็นเรา - <span>WHY US ?</span> </h2>
+    <h2>{{ trans('message.website_reason') }} <span>WHY US ?</span> </h2>
     <br>
     <p style="font-size:24px;">
-      มั่นใจได้ว่าท่านจะได้รับข้อมูลล่าสุดจากเราตลอดเวลา
+       {{ trans('message.website_reason2') }}
     </p>
   </div>
 

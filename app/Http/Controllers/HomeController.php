@@ -8,6 +8,7 @@ use App\category;
 use App\product;
 use App\wishlist;
 use Illuminate\Support\Facades\DB;
+use Stichoza\GoogleTranslate\TranslateClient;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,7 @@ class HomeController extends Controller
      */
      public function index()
    {
-
+    
      $shop = DB::table('product')->select(
            'product.*'
            )
@@ -95,6 +96,7 @@ class HomeController extends Controller
                  )
                  ->count();
 
+    //  dd($varlues);
 
       $set_point = 0;
      $data['shop_count'] = $shop_count;
