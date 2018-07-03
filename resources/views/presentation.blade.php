@@ -49,7 +49,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
         <ul>
           @if($category1)
             @foreach($category1 as $category1_1)
-          <li><a href="#"><i class="{{$category1_1->icon}}"></i>{{$category1_1->name}}<span class="other_tours_price">{{$category1_1->options}}</span></a>
+          <li><a href="{{url('category/'.$category1_1->id)}}"><i class="{{$category1_1->icon}}"></i>{{$category1_1->name}}<span class="other_tours_price">{{$category1_1->options}}</span></a>
           </li>
             @endforeach
           @endif
@@ -59,7 +59,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
         <ul>
           @if($category2)
             @foreach($category2 as $category2_2)
-          <li><a href="#"><i class="{{$category2_2->icon}}"></i>{{$category2_2->name}}<span class="other_tours_price">{{$category2_2->options}}</span></a>
+          <li><a href="{{url('category/'.$category2_2->id)}}"><i class="{{$category2_2->icon}}"></i>{{$category2_2->name}}<span class="other_tours_price">{{$category2_2->options}}</span></a>
           </li>
             @endforeach
           @endif
@@ -69,7 +69,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
         <ul>
           @if($category3)
             @foreach($category3 as $category3_3)
-          <li><a href="#"><i class="{{$category3_3->icon}}"></i>{{$category3_3->name}}<span class="other_tours_price">{{$category3_3->options}}</span></a>
+          <li><a href="{{url('category/'.$category3_3->id)}}"><i class="{{$category3_3->icon}}"></i>{{$category3_3->name}}<span class="other_tours_price">{{$category3_3->options}}</span></a>
           </li>
             @endforeach
           @endif
@@ -84,7 +84,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
         <ul>
           @if($category1)
             @foreach($category1 as $category1_1)
-          <li><a href="#"><i class="{{$category1_1->icon}}"></i>{{$category1_1->name_en}}<span class="other_tours_price">{{$category1_1->options}}</span></a>
+          <li><a href="{{url('category/'.$category1_1->id)}}"><i class="{{$category1_1->icon}}"></i>{{$category1_1->name_en}}<span class="other_tours_price">{{$category1_1->options}}</span></a>
           </li>
             @endforeach
           @endif
@@ -94,7 +94,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
         <ul>
           @if($category2)
             @foreach($category2 as $category2_2)
-          <li><a href="#"><i class="{{$category2_2->icon}}"></i>{{$category2_2->name_en}}<span class="other_tours_price">{{$category2_2->options}}</span></a>
+          <li><a href="{{url('category/'.$category2_2->id)}}"><i class="{{$category2_2->icon}}"></i>{{$category2_2->name_en}}<span class="other_tours_price">{{$category2_2->options}}</span></a>
           </li>
             @endforeach
           @endif
@@ -104,7 +104,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
         <ul>
           @if($category3)
             @foreach($category3 as $category3_3)
-          <li><a href="#"><i class="{{$category3_3->icon}}"></i>{{$category3_3->name_en}}<span class="other_tours_price">{{$category3_3->options}}</span></a>
+          <li><a href="{{url('category/'.$category3_3->id)}}"><i class="{{$category3_3->icon}}"></i>{{$category3_3->name_en}}<span class="other_tours_price">{{$category3_3->options}}</span></a>
           </li>
             @endforeach
           @endif
@@ -119,7 +119,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
         <ul>
           @if($category1)
             @foreach($category1 as $category1_1)
-          <li><a href="#"><i class="{{$category1_1->icon}}"></i>{{$category1_1->name_cn}}<span class="other_tours_price">{{$category1_1->options}}</span></a>
+          <li><a href="{{url('category/'.$category1_1->id)}}"><i class="{{$category1_1->icon}}"></i>{{$category1_1->name_cn}}<span class="other_tours_price">{{$category1_1->options}}</span></a>
           </li>
             @endforeach
           @endif
@@ -129,7 +129,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
         <ul>
           @if($category2)
             @foreach($category2 as $category2_2)
-          <li><a href="#"><i class="{{$category2_2->icon}}"></i>{{$category2_2->name_cn}}<span class="other_tours_price">{{$category2_2->options}}</span></a>
+          <li><a href="{{url('category/'.$category2_2->id)}}"><i class="{{$category2_2->icon}}"></i>{{$category2_2->name_cn}}<span class="other_tours_price">{{$category2_2->options}}</span></a>
           </li>
             @endforeach
           @endif
@@ -139,7 +139,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
         <ul>
           @if($category3)
             @foreach($category3 as $category3_3)
-          <li><a href="#"><i class="{{$category3_3->icon}}"></i>{{$category3_3->name_cn}}<span class="other_tours_price">{{$category3_3->options}}</span></a>
+          <li><a href="{{url('category/'.$category3_3->id)}}"><i class="{{$category3_3->icon}}"></i>{{$category3_3->name_cn}}<span class="other_tours_price">{{$category3_3->options}}</span></a>
           </li>
             @endforeach
           @endif

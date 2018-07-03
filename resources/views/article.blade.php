@@ -29,7 +29,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
       <div class="col-md-10 col-md-offset-1">
 
         <div class="main_title">
-            <h2><span>บทความน่ารู้ </span></h2>
+            <h2><span>{{ trans('message.article') }} </span></h2>
             <hr>
             <br>
 

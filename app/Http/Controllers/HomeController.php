@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
      public function index()
    {
-    
+
      $shop = DB::table('product')->select(
            'product.*'
            )
@@ -379,6 +379,7 @@ class HomeController extends Controller
                 )
                 ->where('category_id', $cat->id)
                 ->where('rating', $ratting)
+                ->orderBy('rating', 'desc')
                 ->paginate(8);
 
                 $shop = DB::table('product')->select(
@@ -437,6 +438,7 @@ class HomeController extends Controller
                 )
                 ->where('category_id', $cat->id)
                 ->whereBetween('startprice', [$s_price, $e_price])
+                ->orderBy('rating', 'desc')
                 ->paginate(8);
 
                 $shop = DB::table('product')->select(
@@ -562,6 +564,7 @@ class HomeController extends Controller
                 'product.*'
                 )
                 ->where('category_id', $cat->id)
+                ->orderBy('rating', 'desc')
                 ->paginate(8);
 
                 $shop = DB::table('product')->select(
