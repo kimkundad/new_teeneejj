@@ -288,21 +288,21 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
               <div class="col-md-4 wow zoomIn animated" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: zoomIn;">
                   <div class="feature_home">
                       <i class="icon_set_1_icon-41"></i>
-                      <h3><span>+ 8000</span> แผงค้า</h3>
+                      <h3><span>+ 8000</span> {{ trans('message.blog_1') }}</h3>
                       <p>
 
-                           จากข้อมูลนักท่องเที่ยวต่างชาติปี 2558 มีประมาณ 25 ล้านคน มีประมาณ 70% ที่มาท่องเที่ยวที่จตุจักร โดยรวมกันแล้ว ทั้งนักท่องเที่ยวไทย                    </p>
-                      <a href="{{url('WHY_US')}}" class="btn_1 outline">อ่านต่อ</a>
+                           {{ trans('message.blog_1_sup') }}                    </p>
+                      <a href="{{url('WHY_US')}}" class="btn_1 outline">{{ trans('message.read_more') }}</a>
                   </div>
               </div>
 
               <div class="col-md-4 wow zoomIn animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: zoomIn;">
                   <div class="feature_home">
                       <i class="icon_set_1_icon-30"></i>
-                      <h3><span>+1M</span> สำหรับผู้เข้าชม</h3>
+                      <h3><span>+1M</span> {{ trans('message.blog_2') }}</h3>
                       <p>
-                           เรามีข้อมูลของแผงค้าของตลาดนัดจตุจักร ที่มีการอัพเดทข้อมูลใหม่ทุกๆสัปดาห์ และเลือกข้อมูลที่ดีที่สุดมาให้กับท่านได้เลือกชมกัน เวลาเ                    </p>
-                      <a href="{{url('WHY_US')}}" class="btn_1 outline">อ่านต่อ</a>
+                           {{ trans('message.blog_2_sup') }}                    </p>
+                      <a href="{{url('WHY_US')}}" class="btn_1 outline">{{ trans('message.read_more') }}</a>
                   </div>
               </div>
 
@@ -311,9 +311,9 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
                       <i class="icon_set_1_icon-57"></i>
                       <h3><span>H24 </span> Support</h3>
                       <p>
-                           หากมีข้อผิดพลาดประการใด หรือคำแนะนำเกี่ยวกับเว็บไซต์นี้ สามารถแจ้งในส่วนของ Contact ในหน้าติดต่อนี้ได้เลยครับ
+                           {{ trans('message.blog_3_sup') }}
                       </p>
-                      <a href="{{url('contact_us')}}" class="btn_1 outline">อ่านต่อ</a>
+                      <a href="{{url('contact_us')}}" class="btn_1 outline">{{ trans('message.read_more') }}</a>
                   </div>
               </div>
 

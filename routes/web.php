@@ -19,7 +19,7 @@ Auth::routes();
 Route::get('change/{locale}', function ($locale) {
 	App::setLocale($locale);
   session(['locale' => $locale]);
-  return redirect('/');
+  return Redirect::back();
 });
 
 Route::get('/', 'HomeController@index');

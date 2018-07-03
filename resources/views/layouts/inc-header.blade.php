@@ -36,7 +36,7 @@
 
                         </li>
                         <li><a href="{{url('wishlist')}}" id="wishlist_link">{{ trans('message.wishlist') }}</a></li>
-                        <li>{{ trans('message.lang') }}</li>
+                        <li>Language : {{ trans('message.lang') }}</li>
                     </ul>
                 </div>
             </div><!-- End row -->
@@ -85,6 +85,16 @@
                      <a style="font-size: 15px;" href="{{url('/contact_us')}}">{{ trans('message.contact_us') }}  </a>
 
                  </li>
+                 <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Choose language <i class="icon-down-open-mini"></i></a>
+                                <ul>
+
+                                    <li><a href="{{ URL::to('change/th') }}">Thai language</a></li>
+                                    <li><a href="{{ URL::to('change/en') }}">Englist language</a></li>
+                                    <li><a href="{{ URL::to('change/ch') }}">Chaina language</a></li>
+
+                                </ul>
+                            </li>
 
 
 

@@ -23,4 +23,13 @@ return [
     'website_video' => 'Collectibles for people of all ages, such as clothing, jewelry. Local Products Wicker furniture to pets. The area is also unique for the flower shop. One of the largest in Bangkok.',
     'website_reason' => 'Reason to ',
     'website_reason2' => 'Make sure you get the latest information from us all the time.',
+    'blog_1' => 'Shop',
+    'blog_1_sup' => 'According to foreign tourist information, about 25 million people in 2015, about 70% of visitors to Chatuchak. All together Thai tourists',
+    'blog_2' => 'For visitors',
+    'blog_2_sup' => 'We have information of trade panel of Chatuchak market. Updated every week. And choose the best information for you to choose.',
+    'blog_3_sup' => 'If there are any errors. Or advice on this site? Can be contacted in this contact page',
+    'read_more' => 'Read more',
+    'presentation_sub' => 'Chatuchak Weekend Market It is the largest market in Thailand. This market is a place where tourists come to Bangkok.',
+    'directions_sup' => 'Getting to Chatuchak Weekend Market with detailed lines.',
+    'directions_sup_1' => 'Chatuchak Weekend Market It is the largest market in Thailand. This market is a place where tourists come to Bangkok.',
 ];
