@@ -265,7 +265,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 </div>
 <!-- End white_bg -->
 
-<section class="parallax-window" data-parallax="scroll" data-image-src="{{url('assets/img/home_bg_1.jpg')}}" data-natural-width="1400" data-natural-height="470">
+<section class="parallax-window" data-parallax="scroll" data-image-src="{{secure_url('assets/img/home_bg_1.jpg')}}" data-natural-width="1400" data-natural-height="470">
 <div class="parallax-content-1 magnific">
     <div>
         <h3>{{ trans('message.sub_title_home') }}</h3>
