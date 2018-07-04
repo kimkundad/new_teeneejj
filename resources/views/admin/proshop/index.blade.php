@@ -91,7 +91,7 @@
   												<button type="button" class="mb-1 mt-1 mr-1 btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">จัดการ <span class="caret"></span></button>
   												<div class="dropdown-menu" role="menu">
 
-  												<a class="dropdown-item text-1" href="{{url('admin/shop/'.$u->id_q.'/edit')}}">แก้ไข</a>
+  												<a class="dropdown-item text-1" href="{{url('admin/proshop/'.$u->id_q.'/edit')}}">แก้ไข</a>
                           <form  action="{{url('admin/proshop/'.$u->id_q)}}" method="post" onsubmit="return(confirm('Do you want Delete'))">
                             <input type="hidden" name="_method" value="DELETE">
                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
