@@ -56,7 +56,7 @@ for($i=1;$i <= $total;$i++){
                 </div>
                 <div class="col-md-4 col-sm-4">
                     <div id="price_single_main" class="hotel">
-                        ยอดการเข้าชม <span><sup></sup>{{number_format($objs->view)}}</span>
+                        {{trans('message.view_sum')}} <span><sup></sup>{{number_format($objs->view)}}</span>
                     </div>
                 </div>
             </div>
@@ -150,7 +150,7 @@ for($i=1;$i <= $total;$i++){
               <div class="row magnific-gallery add_bottom_60 ">
 
                 <div class="col-md-12">
-                    <h3>สินค้าใหม่ </h3>
+                    <h3>{{trans('message.new_pro')}} </h3>
                 </div>
                         @if($gallery2)
                           @foreach($gallery2 as $gallery22)
@@ -172,14 +172,34 @@ for($i=1;$i <= $total;$i++){
 
                           <div class="row">
                               <div class="col-md-3">
-                                  <h3>รายละเอียด</h3>
+                                  <h3>{{trans('message.detail_pro')}}</h3>
                               </div>
 
                               <div class="col-md-9">
-                                  <p style="font-size:16px;" align="justify">
-                                    {!! $objs->details !!}
-                                  </p>
-                                  <h4>ข้อมูลการติดต่อ</h4>
+
+                                @if(trans('message.lang') == 'ไทย')
+
+                                <p style="font-size:16px;" align="justify">
+                                  {!! $objs->details !!}
+                                </p>
+
+                                @elseif(trans('message.lang') == 'Eng')
+
+                                <p style="font-size:16px;" align="justify">
+                                  {!! $objs->details_en !!}
+                                </p>
+
+                                @else
+
+                                <p style="font-size:16px;" align="justify">
+                                  {!! $objs->details_cn !!}
+                                </p>
+
+                                @endif
+
+
+
+                                  <h4>{{trans('message.con_shop')}}</h4>
                                   <p><b>ที่อยู่ร้าน :</b> {{$objs->keyword}} </p>
                                   <div class="row">
                                       <div class="col-md-6 col-sm-6">
@@ -208,11 +228,11 @@ for($i=1;$i <= $total;$i++){
 
               <div class="row">
                 <div class="col-md-3">
-                                  <h3>ราคา</h3>
+                                  <h3>{{trans('message.price')}}</h3>
                               </div>
 
                 <div class="col-md-9">
-                <h4>{{$objs->startprice}} - {{$objs->endprice}} บาท</h4>
+                <h4>{{$objs->startprice}} - {{$objs->endprice}} {{trans('message.cerrency')}}</h4>
                   </div>
               </div>
 
@@ -227,7 +247,7 @@ for($i=1;$i <= $total;$i++){
                                   <h4>Social share</h4>
                               </div>
                                       <div class="col-md-8" >
-                                        <div class="fb-like" data-href="https://www.teeneejj.com/shop/44" data-layout="button_count" data-action="recommend" data-size="small" data-show-faces="true" data-share="true"></div>
+                                        <div class="fb-like" data-href="https://www.teeneejj.com/shop/{{$objs->id_p}}" data-layout="button_count" data-action="recommend" data-size="small" data-show-faces="true" data-share="true"></div>
                                       </div>
 
 
@@ -252,7 +272,7 @@ for($i=1;$i <= $total;$i++){
 
                           <div class="row">
                             <div class="col-md-12">
-                              <h4>คุณอาจจะสนใจ</h4>
+                              <h4>{{trans('message.if_like')}}</h4>
                             </div>
 
 
@@ -422,15 +442,46 @@ for($i=1;$i <= $total;$i++){
               @if($cat)
                 @foreach($cat as $category1_1)
 
-              <tr class="other_tours1">
-                  <td style="width: 70%;">
-                      <a href="{{url('category/'.$category1_1->id)}}"><i class="{{$category1_1->icon}}"></i> {{$category1_1->name}}</a>
-                  </td>
-                  <td class="text-right">
-                      <span class="other_tours_price"><a href="category-25">{{$category1_1->options}}</a>
-                      </span>
-                  </td>
-              </tr>
+
+                @if(trans('message.lang') == 'ไทย')
+
+                <tr class="other_tours1">
+                    <td style="width: 70%;">
+                        <a href="{{url('category/'.$category1_1->id)}}"><i class="{{$category1_1->icon}}"></i> {{$category1_1->name_en}}</a>
+                    </td>
+                    <td class="text-right">
+                        <span class="other_tours_price"><a href="category-25">{{$category1_1->options}}</a>
+                        </span>
+                    </td>
+                </tr>
+
+                @elseif(trans('message.lang') == 'Eng')
+
+                <tr class="other_tours1">
+                    <td style="width: 70%;">
+                        <a href="{{url('category/'.$category1_1->id)}}"><i class="{{$category1_1->icon}}"></i> {{$category1_1->name_en}}</a>
+                    </td>
+                    <td class="text-right">
+                        <span class="other_tours_price"><a href="category-25">{{$category1_1->options}}</a>
+                        </span>
+                    </td>
+                </tr>
+
+                @else
+
+                <tr class="other_tours1">
+                    <td style="width: 70%;">
+                        <a href="{{url('category/'.$category1_1->id)}}"><i class="{{$category1_1->icon}}"></i> {{$category1_1->name_cn}}</a>
+                    </td>
+                    <td class="text-right">
+                        <span class="other_tours_price"><a href="category-25">{{$category1_1->options}}</a>
+                        </span>
+                    </td>
+                </tr>
+
+                @endif
+
+
                 @endforeach
               @endif
 

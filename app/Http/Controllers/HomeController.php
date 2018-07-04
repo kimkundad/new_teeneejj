@@ -682,6 +682,8 @@ class HomeController extends Controller
                 'product.*',
                 'product.id as id_p',
                 'product.detail as details',
+                'product.detail_en as details_en',
+                'product.detail_cn as details_cn',
                 'product.name as names',
                 'category.*',
                 'category.id as id_c',
@@ -792,7 +794,29 @@ class HomeController extends Controller
 
 
 
+   public function all_shop(){
 
+     $shop = DB::table('product')->select(
+           'product.*'
+           )
+           ->where('first', 1)
+           ->orderBy('priority', 'asc')
+           ->limit(12)
+           ->get();
+
+     $options = DB::table('product')->select(
+         'product.*'
+         )
+         ->orderBy('rating', 'desc')
+         ->paginate(16);
+
+    $data['options'] = $options;
+    $data['shop'] = $shop;
+    $set_point = 0;
+    $data['set_point'] = $set_point;
+    return view('all_shop', $data);
+
+   }
 
 
 

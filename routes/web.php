@@ -35,7 +35,10 @@ Route::get('/history', 'HomeController@history');
 
 Route::get('/google', 'HomeController@google');
 
+Route::get('/all_shop', 'HomeController@all_shop');
+
 Route::get('/article', 'HomeController@article');
+
 
 Route::get('shop/{id}', 'HomeController@shop');
 
@@ -64,5 +67,16 @@ Route::post('del_wishlist', 'HomeController@del_wishlist');
 });
 
 Route::group(['middleware' => 'admin'], function() {
+
+	Route::resource('admin/user', 'StudentControlle');
+	Route::resource('admin/category', 'CategoryController');
+	Route::resource('admin/shop', 'ShopController');
+	Route::post('api/post_status_order', 'ShopController@post_status_order');
+
+	Route::post('add_gallery_shop', 'ShopController@add_gallery_shop');
+	Route::post('property_image_del', 'ShopController@property_image_del');
+
+	Route::post('add_gallery_shop_2', 'ShopController@add_gallery_shop_2');
+	Route::post('property_image_del_2', 'ShopController@property_image_del_2');
 
 });

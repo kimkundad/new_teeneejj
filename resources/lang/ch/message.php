@@ -50,4 +50,11 @@ return [
     'help' => 'help?',
     'con_t' => 'Inquiries are available daily from 9am - 7pm.',
     'sum_pro' => '總搜索量',
+    'if_like' => '你可能感興趣。',
+    'new_pro' => '新產品',
+    'detail_pro' => 'detail',
+    'con_shop' => 'Contact information',
+    'con_add_shop' => 'Address',
+    'view_sum' => 'view',
+    'cerrency' => 'baht',
 ];

@@ -47,6 +47,9 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 <!-- End hero -->
 
 <main >
+
+
+
 <div class="container margin_60">
 
   <div class="main_title">
@@ -104,7 +107,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
   <!-- End row -->
   <br>
   <p class="text-center nopadding">
-    <a href="#" class="btn_1 medium">{{ trans('message.total_shop') }} ({{$shop_count}})  </a>
+    <a href="{{url('all_shop')}}" class="btn_1 medium">{{ trans('message.total_shop') }} ({{$shop_count}})  </a>
   </p>
 </div>
 <!-- End container -->

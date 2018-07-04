@@ -22,7 +22,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
             <div class="parallax-content-1">
               <div class="animated fadeInDown">
                 <h1>wishlist</h1>
-                <p>รายการที่คุณชื่นชอบ</p>
+
               </div>
             </div>
         </section>
@@ -30,7 +30,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
         <div id="position">
             	<div class="container">
                         	<ul>
-                            <li><a href="{{url('/')}}">หน้าหลัก</a></li>
+                            <li><a href="{{url('/')}}">{{ trans('message.index') }}</a></li>
                             <li><a href="#">wishlist</a></li>
 
                             </ul>
@@ -51,7 +51,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
         <div id="tools">
              <div class="row">
               <div class="col-md-12">
-                <p style="margin: 8px 0 5px 5px;"> จำนวนการค้นหาทั้งหมด ({{$wishlist_count}})</p>
+                <p style="margin: 8px 0 5px 5px;"> {{ trans('message.sum_pro') }} ({{$wishlist_count}})</p>
               </div>
 
 
