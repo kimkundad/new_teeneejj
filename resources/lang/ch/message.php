@@ -57,4 +57,6 @@ return [
     'con_add_shop' => 'Address',
     'view_sum' => 'view',
     'cerrency' => 'baht',
+    'sub_title_home_pro' => '新產品 獨特',
+    'sub_title_home_2_pro' => '新產品每週一變化。 快速購買訂單。',
 ];

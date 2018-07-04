@@ -60,12 +60,12 @@ html.no-overflowscrolling .nano > .nano-pane > .nano-slider {
 										</a>
 									</li>
 
-              <!--    <li {{ (Request::is('admin/review*') ? 'class=nav-expanded' : '') }} >
-										<a href="{{url('admin/review/')}}"  >
+                  <li {{ (Request::is('admin/proshop*') ? 'class=nav-expanded' : '') }} >
+										<a href="{{url('admin/proshop/')}}"  >
 											<i class="fa fa-bell-o" aria-hidden="true"></i>
-											<span>จัดการ review</span>
+											<span>จัดการ สินค้า</span>
 										</a>
-									</li> -->
+									</li>
 
 
                   <li {{ (Request::is('admin/contact_admin*') ? 'class=nav-expanded' : '') }} >

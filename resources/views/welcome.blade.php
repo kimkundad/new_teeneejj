@@ -109,6 +109,115 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
   <p class="text-center nopadding">
     <a href="{{url('all_shop')}}" class="btn_1 medium">{{ trans('message.total_shop') }} ({{$shop_count}})  </a>
   </p>
+
+  <br><hr>
+  <br>
+  <div class="main_title">
+    <h2> <span>{{ trans('message.sub_title_home_pro') }} </span> </h2>
+
+    <br>
+    <p style="font-size:24px;">{{ trans('message.sub_title_home_2_pro') }}</p>
+  </div>
+
+  <style>
+  .thumbnail a>img, .thumbnail>img {
+      border-radius: 5px 5px 0px 0px;
+  }
+  .thumbnail {
+    border-radius: 5px;
+    display: block;
+    padding: 0px;
+}
+.thumbnail .caption {
+    padding: 9px;
+    color: #333;
+}
+.descript {
+    /* height: 35px; */
+    font-size: 15px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    line-height: 1.2em;
+    /* margin-bottom: 12px !important; */
+}
+.descript a {
+    color: #000;
+    /* text-decoration: none; */
+}
+.descript-t {
+    float: right;
+    height: 40px;
+}
+.postMetaInline-authorLockup {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.4;
+    padding-left: 10px;
+    text-rendering: auto;
+}
+.rating {
+    margin: 1px 0 3px -3px;
+    font-size: 15px;
+}
+.rating .voted {
+    color: #F90;
+}
+  </style>
+
+<!--
+  <div class="row">
+
+    @if($products)
+    @foreach($products as $product)
+
+    <div class="col-md-3 col-sm-6">
+      <div class="thumbnail a_sd_move">
+                          <div style="max-height: 184px; min-height: 184px; overflow: hidden; position: relative;">
+                          <a href="#">
+                          <img src="{{url('assets/image/product/'.$product->image_pro)}}">
+
+                          </a></div>
+                          <div class="caption" style="padding: 3px;">
+                            <div class="descript bold" style="border-bottom: 1px dashed #dff0d8;">
+                                <a href="#">{{$product->name_pro}}</a>
+                            </div>
+
+
+                            <div class="descript" style="height: 20px;">
+                              <span style="color: #e03753; font-size: 14px; font-weight: 600;"> {{number_format($product->price)}} Baht</span>
+                              <div class="descript-t">
+                              <div class="postMetaInline-authorLockup">
+
+                                                                <div class="rating">
+                                    <i class="icon-star voted"></i>
+                                    <i class="icon-star voted"></i>
+                                    <i class="icon-star voted"></i>
+                                    <i class="icon-star voted"></i>
+                                    <i class="icon-star-empty"></i>
+
+                                </div>
+
+                              </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+    </div>
+
+    @endforeach
+    @endif
+
+
+
+  </div>
+
+-->
+
 </div>
 <!-- End container -->
 

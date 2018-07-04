@@ -78,5 +78,10 @@ Route::group(['middleware' => 'admin'], function() {
 
 	Route::post('add_gallery_shop_2', 'ShopController@add_gallery_shop_2');
 	Route::post('property_image_del_2', 'ShopController@property_image_del_2');
+	Route::resource('admin/proshop', 'ProshopController');
+	Route::post('api/api_post_status_shop', 'ProshopController@api_post_status_shop');
+	Route::post('add_gallery_shop_product', 'ProshopController@add_gallery_shop_product');
+	Route::post('property_image_del_product', 'ProshopController@property_image_del_product');
+
 
 });

@@ -27,6 +27,13 @@ class HomeController extends Controller
      public function index()
    {
 
+     $products = DB::table('proshops')->select(
+           'proshops.*'
+           )
+           ->where('status', 1)
+           ->limit(12)
+           ->get();
+
      $shop = DB::table('product')->select(
            'product.*'
            )
@@ -99,6 +106,7 @@ class HomeController extends Controller
     //  dd($varlues);
 
       $set_point = 0;
+      $data['products'] = $products;
      $data['shop_count'] = $shop_count;
      $data['set_point'] = $set_point;
      $data['shop'] = $shop;

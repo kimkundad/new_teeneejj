@@ -57,4 +57,6 @@ return [
     'con_add_shop' => 'Address',
     'view_sum' => 'view',
     'cerrency' => 'baht',
+    'sub_title_home_pro' => 'New product Unique',
+    'sub_title_home_2_pro' => 'New products change every Monday. Quick purchase orders.',
 ];
