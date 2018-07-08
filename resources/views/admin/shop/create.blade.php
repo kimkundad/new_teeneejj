@@ -53,12 +53,7 @@
 
           									<div id="edit" class="tab-pane active">
 
-                              @if($errors->has())
-                                 @foreach ($errors->all() as $error)
-                                    <div>{{ $error }}</div>
-                                @endforeach
-                              @endif
-
+                            
 
                               <form  method="POST" action="{{$url}}" enctype="multipart/form-data">
                                           {{ method_field($method) }}
