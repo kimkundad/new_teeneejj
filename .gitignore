@@ -1,7 +1,7 @@
 /node_modules
 /public/hot
 /public/storage
-/app/Providers/AppServiceProvider.php
+/app/Providers/
 /storage/*.key
 /vendor
 /.idea
