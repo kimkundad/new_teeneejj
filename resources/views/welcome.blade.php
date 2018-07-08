@@ -168,7 +168,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 }
   </style>
 
-<!--
+
   <div class="row">
 
     @if($products)
@@ -216,7 +216,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 
   </div>
 
--->
+
 
 </div>
 <!-- End container -->
