@@ -65,7 +65,13 @@ class ShopController extends Controller
      */
     public function create()
     {
-        //
+      //
+      $category = category::all();
+      $data['category'] = $category;
+      $data['method'] = "post";
+      $data['url'] = url('admin/shop');
+      $data['datahead'] = "สร้าง ร้านค้าใหม่ ";
+      return view('admin.shop.create', $data);
     }
 
     /**
@@ -77,6 +83,63 @@ class ShopController extends Controller
     public function store(Request $request)
     {
         //
+        $image = $request->file('image');
+
+        $this->validate($request, [
+           'image' => 'required|max:8048',
+           'name_q' => 'required',
+           'cat_id' => 'required',
+           'phone' => 'required',
+           'startprice' => 'required',
+           'endprice' => 'required',
+           'rating' => 'required',
+           'keyword' => 'required',
+           'details_th' => 'required',
+           'details_en' => 'required',
+           'details_cn' => 'required',
+           'keyword2' => 'required',
+           'lat' => 'required',
+           'lng' => 'required'
+       ]);
+
+
+       $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+
+        $destinationPath = asset('assets/image/cusimage/');
+        $img = Image::make($image->getRealPath());
+        $img->resize(800, 533, function ($constraint) {
+        $constraint->aspectRatio();
+        })->save('assets/image/cusimage/'.$input['imagename']);
+
+
+        $package = new product();
+        $package->name = $request['name_q'];
+        $package->category_id = $request['cat_id'];
+        $package->detail = $request['details_th'];
+        $package->keyword = $request['keyword'];
+        $package->rating = $request['rating'];
+        $package->phone = $request['phone'];
+        $package->facebook = $request['facebook'];
+        $package->instagram = $request['instagram'];
+        $package->line_id = $request['line_id'];
+        $package->email = $request['email'];
+        $package->youtube = $request['youtube'];
+        $package->website = $request['website'];
+        $package->startprice = $request['startprice'];
+        $package->endprice = $request['endprice'];
+        $package->keyword2 = $request['keyword2'];
+        $package->latitude = $request['lat'];
+        $package->longitude = $request['lng'];
+        $package->detail_en = $request['details_en'];
+        $package->detail_cn = $request['details_cn'];
+        $package->image = $input['imagename'];
+        $package->save();
+
+
+        $the_id = $package->id;
+
+        return redirect(url('admin/shop/'.$the_id.'/edit'))->with('add_success','คุณทำการเพิ่มอสังหา สำเร็จ');
+
     }
 
     /**

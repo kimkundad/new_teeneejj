@@ -15,9 +15,10 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
   width: 100%;
   height: 450px;
 }
+/* secure_url */
 </style>
 
-<section class="parallax-window" style="min-height: 270px;" data-parallax="scroll" data-image-src="{{secure_url('assets/image/cusimage/1447225236-1.jpg')}}" data-natural-width="1400" data-natural-height="470">
+<section class="parallax-window" style="min-height: 270px;" data-parallax="scroll" data-image-src="{{url('assets/image/cusimage/1447225236-1.jpg')}}" data-natural-width="1400" data-natural-height="470">
     <div class="parallax-content-2">
         <div class="container">
             <div class="row">

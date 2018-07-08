@@ -48,7 +48,13 @@
 
 
 
+                <div class="col-md-12 " style="padding-left: 1px;">
 
+                  <a class="btn btn-primary " href="{{url('admin/shop/create')}}" >
+                      <i class="fa fa-plus"></i> เพิ่มร้านค้าใหม่</a>
+                </div>
+
+                <br><br>
 
 
 
