@@ -314,7 +314,7 @@ class HomeController extends Controller
             $data_toview['order_detai1'] = $order_detail;
             $data_toview['datatime'] = date("d-m-Y H:i:s");
 
-            $email_sender   = 'teeneejj@gmail.com';
+            $email_sender   = 'kim.kundad@gmail.com';
             $email_pass     = 'qwer1234009';
 
         /*    $email_sender   = 'info@acmeinvestor.com';
@@ -355,7 +355,15 @@ class HomeController extends Controller
                             //echo 'Confirmation email after registration is completed.';
                         });
 
-                        
+                        Mail::send('mail.index', $data_toview, function($message) use ($data)
+                        {
+                            $message->from($data['sender'], 'คำสั่งซื้อสินค้าจาก Teeneejj');
+                            $message->to($data['sender'])
+                            ->replyTo($data['sender'], 'คำสั่งซื้อสินค้าจาก Teeneejj.')
+                            ->subject('คำสั่งซื้อสินค้าจาก Teeneejj');
+
+                            //echo 'Confirmation email after registration is completed.';
+                        });
 
 
 
