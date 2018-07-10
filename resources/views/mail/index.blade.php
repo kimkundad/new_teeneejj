@@ -2,7 +2,7 @@
 <div style="width:590px">
 <div style="background:url('{{url('assets/image/email_top.png')}}') no-repeat;width:100%;height:75px;display:block">
 <div style="padding-top:30px;padding-left:50px;padding-right:50px">
-<a href="#" target="_blank" ><img src="{{url('assets/img/logo.png')}}" alt=""
+<a href="#" target="_blank" ><img src="{{url('assets/img/logo_sticky.png')}}" alt=""
   style="border:none; height:42px;" ></a>
 </div>
 </div>
