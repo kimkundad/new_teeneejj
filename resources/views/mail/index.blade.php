@@ -40,19 +40,6 @@ repeat-y;width:100%;display:block">
 <tbody>
 <tr>
 </tr>
-@if($order_detai1)
-@foreach($order_detai1 as $order_details)
-    <tr>
-      <td style="text-align:left;font-size:12px;padding-right:10px">
-        <span>{{$order_details->product_name}} x {{$order_details->product_total}}</span>
-      </td>
-      <td style="text-align:right;font-size:12px">
-        <span>THB{{$order_details->product_price}}.00</span>
-        <span></span>
-      </td>
-    </tr>
-    @endforeach
-    @endif
 </tbody>
 </table>
 <div style="border-bottom:1px solid #ededed">
@@ -80,25 +67,6 @@ repeat-y;width:100%;display:block">
 <div style="border-bottom:1px solid #ededed"></div>
 <table style="width:100%;margin:5px 0 15px 0;padding:0;border-spacing:0">
   <tbody>
-    @if($bank)
-    @foreach($bank as $banks)
-    <tr>
-    <td style="text-align:left;font-weight:bold;font-size:12px;vertical-align:top">{{$banks->bank_name}}</td>
-    <td style="text-align:left;font-size:12px;vertical-align:top">{{$banks->bank_owner}}</td>
-      <td>
-        <table style="margin-left:auto;font-size:12px">
-          <tbody>
-            <tr>
-              <td style="font-size:12px;text-align:right">
-                {{$banks->bank_number}}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    @endforeach
-    @endif
   </tbody>
 </table>
 </div><div style="margin:20px 0">หากมีคำถาม ติดต่อ <a href="#" target="_blank" >086 551 7336</a>
