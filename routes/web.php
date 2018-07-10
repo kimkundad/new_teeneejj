@@ -33,14 +33,25 @@ Route::get('/contact_us', 'HomeController@contact_us');
 
 Route::get('/history', 'HomeController@history');
 
+Route::get('/cart', 'HomeController@cart');
+
+Route::get('deleteCart/{id}', 'HomeController@deleteCart');
+
+Route::post('/updateCart', 'HomeController@updateCart');
+
 Route::get('/google', 'HomeController@google');
 
 Route::get('/all_shop', 'HomeController@all_shop');
 
 Route::get('/article', 'HomeController@article');
 
+Route::post('/add_session_value', 'HomeController@add_session_value');
+Route::post('/buy_item', 'HomeController@buy_item');
+
 
 Route::get('shop/{id}', 'HomeController@shop');
+
+Route::get('product/{id}', 'HomeController@product');
 
 Route::get('search', 'HomeController@search');
 
@@ -59,14 +70,25 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/add_wishlist', 'HomeController@add_wishlist');
+
+
 Route::group(['middleware' => 'auth'], function () {
+
+	Route::get('/payment', 'HomeController@payment');
+	Route::post('/add_order', 'HomeController@add_order');
+	Route::get('confirmation/', 'HomeController@confirmation');
+
 
 Route::get('wishlist', 'HomeController@wishlist');
 Route::post('del_wishlist', 'HomeController@del_wishlist');
 
 });
 
+
+
 Route::group(['middleware' => 'admin'], function() {
+
+
 
 	Route::resource('admin/user', 'StudentControlle');
 	Route::resource('admin/category', 'CategoryController');

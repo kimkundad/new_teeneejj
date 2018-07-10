@@ -177,13 +177,13 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
     <div class="col-md-3 col-sm-6">
       <div class="thumbnail a_sd_move">
                           <div style="max-height: 184px; min-height: 184px; overflow: hidden; position: relative;">
-                          <a href="#">
+                          <a href="{{url('product/'.$product->id)}}">
                           <img src="{{url('assets/image/product/'.$product->image_pro)}}">
 
                           </a></div>
                           <div class="caption" style="padding: 3px;">
                             <div class="descript bold" style="border-bottom: 1px dashed #dff0d8;">
-                                <a href="#">{{$product->name_pro}}</a>
+                                <a href="{{url('product/'.$product->id)}}">{{$product->name_pro}}</a>
                             </div>
 
 

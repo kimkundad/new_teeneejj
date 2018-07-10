@@ -4,11 +4,19 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
+use Session;
 use App\category;
 use App\product;
+use App\bank;
 use App\wishlist;
+use App\order;
+use App\order_detail;
 use Illuminate\Support\Facades\DB;
-use Stichoza\GoogleTranslate\TranslateClient;
+use Mail;
+use Swift_Transport;
+use Swift_Message;
+use Swift_Mailer;
+
 
 class HomeController extends Controller
 {
@@ -115,6 +123,318 @@ class HomeController extends Controller
      $data['category3'] = $cat3;
 
        return view('welcome', $data);
+   }
+
+
+   public function add_session_value(Request $request){
+
+      $id = $request->input('product_id');
+      $quantity = $request->input('quantity');
+
+    $product = DB::select('select * from proshops where id='.$id);
+    $cart = Session::get('cart');
+    $cart[$product[0]->id] = array(
+        "id" => $product[0]->id,
+        "nama_product" => $product[0]->name_pro,
+        "price" => $product[0]->price,
+        "image" => $product[0]->image_pro,
+        "qty" => $quantity,
+        "shipping_price" => $product[0]->shipping_price,
+    );
+
+    Session::put('cart', $cart);
+
+
+    return redirect(url('product/'.$id))->with('add_success','คุณทำการเพิ่มอสังหา สำเร็จ');
+
+    //  dd(Session::get('cart'));
+      // return redirect(url('booking_cars'));
+    }
+
+
+    public function buy_item(Request $request){
+
+       $id = $request->input('product_id');
+       $quantity = $request->input('quantity');
+
+     $product = DB::select('select * from proshops where id='.$id);
+     $cart = Session::get('cart');
+     $cart[$product[0]->id] = array(
+         "id" => $product[0]->id,
+         "nama_product" => $product[0]->name_pro,
+         "price" => $product[0]->price,
+         "image" => $product[0]->image_pro,
+         "qty" => $quantity,
+         "shipping_price" => $product[0]->shipping_price,
+     );
+
+     Session::put('cart', $cart);
+
+
+     return redirect(url('cart/'))->with('add_success','คุณทำการเพิ่มอสังหา สำเร็จ');
+
+     //  dd(Session::get('cart'));
+       // return redirect(url('booking_cars'));
+     }
+
+
+    public function updateCart(Request $request)
+    {
+      $id = $request->input('id');
+      $quantity = $request->input('quantity');
+      //dd($id);
+      $cart = Session::get('cart');
+
+      if ($quantity > 0) {
+            $cart[$id]['qty'] = $quantity;
+        } else {
+            unset($cart[$id]);
+        }
+
+
+
+
+      Session::put('cart', $cart);
+    return redirect()->back();
+
+    }
+
+
+
+    public function deleteCart($id)
+    {
+        $cart = Session::get('cart');
+        unset($cart[$id]);
+        Session::put('cart', $cart);
+        return redirect()->back();
+    }
+
+
+   public function cart(){
+
+     return view('cart');
+
+   }
+
+   public function payment(){
+
+     $provinces = DB::table('provinces')->get();
+     $data['provinces'] = $provinces;
+     return view('payment', $data);
+
+   }
+
+
+
+
+
+
+
+   public function add_order(Request $request){
+
+
+
+     $this->validate($request, [
+             'name_order' => 'required',
+             'lastname_order' => 'required',
+             'email_order' => 'required',
+             'telephone_order' => 'required',
+             'country_order' => 'required',
+             'postal_code_order' => 'required',
+             'street_order' => 'required',
+             'total' => 'required',
+             'shipping_price' => 'required',
+             'policy_terms' => 'required'
+         ]);
+
+         $package = new order();
+         $package->user_id = Auth::user()->id;
+         $package->name_order = $request['name_order'];
+         $package->lastname_order = $request['lastname_order'];
+         $package->email_order = $request['email_order'];
+         $package->telephone_order = $request['telephone_order'];
+         $package->country_order = $request['country_order'];
+         $package->postal_code_order = $request['postal_code_order'];
+         $package->street_order = $request['street_order'];
+         $package->total = $request['total'];
+         $package->shipping_price = $request['shipping_price'];
+         $package->save();
+
+         $the_id = $package->id;
+
+         $cart = Session::get('cart');
+
+         foreach ($cart as $product_item){
+
+           $package = new order_detail();
+           $package->user_id = Auth::user()->id;
+           $package->order_id = $the_id;
+           $package->product_id = $product_item['id'];
+           $package->product_image = $product_item['image'];
+           $package->product_name = $product_item['nama_product'];
+           $package->product_total = $product_item['qty'];
+           $package->product_price = $product_item['price'];
+           $package->save();
+         }
+
+         $bank = bank::all();
+
+
+         $order = DB::table('orders')->select(
+                'orders.*'
+                )
+                ->where('id', $the_id)
+                ->first();
+
+                $order_detail = DB::table('order_details')->select(
+                       'order_details.*'
+                       )
+                       ->where('order_id', $the_id)
+                       ->get();
+
+                    //   dd($order_detail);
+
+         $data['bank'] = $bank;
+        $data['order'] = $order;
+        $data['order_detai1'] = $order_detail;
+
+
+
+
+
+
+
+
+        // send email
+            $data_toview = array();
+          //  $data_toview['pathToImage'] = "assets/image/email-head.jpg";
+            date_default_timezone_set("Asia/Bangkok");
+            $data_toview['data'] = $order;
+            $data_toview['bank'] = $bank;
+            $data_toview['order_detai1'] = $order_detail;
+            $data_toview['datatime'] = date("d-m-Y H:i:s");
+
+            $email_sender   = 'teeneejj@gmail.com';
+            $email_pass     = 'kingjoji';
+
+        /*    $email_sender   = 'info@acmeinvestor.com';
+            $email_pass     = 'Iaminfoacmeinvestor';  */
+          //  $email_to       =  'siri@sirispace.com';
+            $email_to       =  $request['email'];
+            //echo $admins[$idx]['email'];
+            // Backup your default mailer
+            $backup = \Mail::getSwiftMailer();
+
+            try{
+
+                        //https://accounts.google.com/DisplayUnlockCaptcha
+                        // Setup your gmail mailer
+                        $transport = new \Swift_SmtpTransport('smtp.gmail.com', 465, 'SSL');
+                        $transport->setUsername($email_sender);
+                        $transport->setPassword($email_pass);
+
+                        // Any other mailer configuration stuff needed...
+                        $gmail = new Swift_Mailer($transport);
+
+                        // Set the mailer as gmail
+                        \Mail::setSwiftMailer($gmail);
+
+                        $data['emailto'] = $email_to;
+
+                        //dd($data['emailto']);
+                        $data['sender'] = $email_sender;
+                        //Sender dan Reply harus sama
+
+                        Mail::send('mail.index', $data_toview, function($message) use ($data)
+                        {
+                            $message->from($data['sender'], 'คำสั่งซื้อสินค้าจาก Teeneejj');
+                            $message->to($data['emailto'])
+                            ->replyTo($data['emailto'], 'คำสั่งซื้อสินค้าจาก Teeneejj.')
+                            ->subject('คำสั่งซื้อสินค้าจาก Teeneejj');
+
+                            //echo 'Confirmation email after registration is completed.';
+                        });
+
+                        Mail::send('mail.index', $data_toview, function($message) use ($data)
+                        {
+                            $message->from($data['sender'], 'คำสั่งซื้อสินค้าจาก Teeneejj');
+                            $message->to($data['sender'])
+                            ->replyTo($data['sender'], 'คำสั่งซื้อสินค้าจาก Teeneejj.')
+                            ->subject('คำสั่งซื้อสินค้าจาก Teeneejj');
+
+                            //echo 'Confirmation email after registration is completed.';
+                        });
+
+
+
+            }catch(\Swift_TransportException $e){
+                $response = $e->getMessage() ;
+                echo $response;
+
+            }
+
+
+            // Restore your original mailer
+            Mail::setSwiftMailer($backup);
+            // send email
+
+
+
+        unset($cart);
+        session()->forget('cart');
+
+        return view('confirmation', $data);
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+   public function product($id){
+
+     //dd(Session::get('cart'));
+
+     $cart = Session::get('cart');
+
+     //dd($cart['2']);
+
+
+     $gallery1 = DB::table('proshopimgs')->select(
+            'proshopimgs.*'
+            )
+            ->where('product_id', $id)
+            ->get();
+
+            $home_image_count = DB::table('proshopimgs')->select(
+                   'proshopimgs.*'
+                   )
+                   ->where('product_id', $id)
+                   ->count();
+
+     $data['home_image'] = $gallery1;
+     $data['home_image_all'] = $gallery1;
+     $data['home_image_count'] = $home_image_count;
+
+     $product = DB::table('proshops')->select(
+           'proshops.*',
+           'proshops.id as idp',
+           'proshops.detail as detailss',
+           'category.*'
+           )
+           ->leftjoin('category', 'category.id',  'proshops.cat_id')
+           ->where('proshops.status', 1)
+           ->where('proshops.id', $id)
+           ->first();
+
+           $data['product'] = $product;
+           return view('product', $data);
    }
 
    public function presentation(){
@@ -711,6 +1031,12 @@ class HomeController extends Controller
                ->where('product_id', $id)
                ->get();
 
+               $home_image_count = DB::table('product_image')->select(
+                      'product_image.*'
+                      )
+                      ->where('product_id', $id)
+                      ->count();
+
                $gallery2 = DB::table('product_image1')->select(
                       'product_image1.*'
                       )
@@ -734,9 +1060,11 @@ class HomeController extends Controller
                                $obj1->options = $options;
                              }
                             $data['ran'] = $ran;
+                            $data['home_image_count'] = $home_image_count;
      $data['cat'] = $cat;
      $data['objs'] = $objs;
-     $data['gallery1'] = $gallery1;
+     $data['home_image'] = $gallery1;
+     $data['home_image_all'] = $gallery1;
      $data['gallery2'] = $gallery2;
      return view('shop', $data);
    }

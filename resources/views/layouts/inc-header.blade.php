@@ -104,6 +104,45 @@
                 </div><!-- End main-menu -->
 
 
+
+                <ul id="top_tools">
+
+                        <li>
+                            <div class="dropdown dropdown-cart">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class=" icon-basket-1"></i>Cart ({{count(Session::get('cart'))}}) </a>
+
+                                @if(Session::get('cart') != null)
+
+                                <?php
+                                $cart = session()->get('cart');
+                                $total = 0;
+                                 ?>
+                                <ul class="dropdown-menu" id="cart_items" >
+                                  @foreach ($cart as $product_item)
+                                    <li>
+                                        <div class="image"><img src="{{url('assets/image/product/'.$product_item['image'])}}" ></div>
+                                        <strong>
+										<a href="#">{{$product_item['nama_product']}}</a>{{$product_item['qty']}}x ฿{{number_format($product_item['price'])}} </strong>
+                                        <a href="{{url('/deleteCart/'.$product_item['id'])}}" class="action"><i class="icon-trash"></i></a>
+                                        <?php
+                                          $total += ($product_item['qty'] * $product_item['price']);
+                                         ?>
+                                    </li>
+                                  @endforeach
+
+                                    <li>
+                                        <div>Total: <span>฿{{number_format($total)}}.00</span></div>
+                                        <a href="{{url('cart')}}" class="button_drop">Go to cart</a>
+                                        <a href="{{url('payment')}}" class="button_drop outline">Check out</a>
+                                    </li>
+                                </ul>
+                                @endif
+
+                            </div><!-- End dropdown-cart-->
+                        </li>
+                    </ul>
+
+
             </nav>
         </div>
     </div><!-- container -->

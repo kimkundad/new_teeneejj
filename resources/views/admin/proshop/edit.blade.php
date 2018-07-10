@@ -117,6 +117,13 @@
           												</div>
 
                                   <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">น้ำหนักสินค้า / กรัม*</label>
+          													<div class="col-md-8">
+          														<input type="text" class="form-control" name="shipping_price" value="{{$objs->shipping_price}}">
+          														</div>
+          												</div>
+
+                                  <div class="form-group">
 					             <label class="col-md-3 control-label">รูปหลักสินค้า</label>
 												<div class="col-md-8">
 													<img src="{{url('assets/image/product/'.$objs->image_pro)}}" class="img-responsive img-thumbnail">

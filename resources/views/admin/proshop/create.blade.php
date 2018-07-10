@@ -118,6 +118,13 @@
           														</div>
           												</div>
 
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">น้ำหนักสินค้า / กรัม*</label>
+          													<div class="col-md-8">
+          														<input type="text" class="form-control" name="shipping_price" value="{{ old('shipping_price') }}">
+          														</div>
+          												</div>
+
                                   <br>
                         <div class="form-group">
                           <label class="col-md-3 control-label" for="exampleInputEmail1">รูปหลักสินค้า*</label>
