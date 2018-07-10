@@ -315,7 +315,7 @@ class HomeController extends Controller
             $data_toview['datatime'] = date("d-m-Y H:i:s");
 
             $email_sender   = 'teeneejj@gmail.com';
-            $email_pass     = 'kingjoji';
+            $email_pass     = 'qwer1234009';
 
         /*    $email_sender   = 'info@acmeinvestor.com';
             $email_pass     = 'Iaminfoacmeinvestor';  */
