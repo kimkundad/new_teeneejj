@@ -355,15 +355,7 @@ class HomeController extends Controller
                             //echo 'Confirmation email after registration is completed.';
                         });
 
-                        Mail::send('mail.index', $data_toview, function($message) use ($data)
-                        {
-                            $message->from($data['sender'], 'คำสั่งซื้อสินค้าจาก Teeneejj');
-                            $message->to($data['sender'])
-                            ->replyTo($data['sender'], 'คำสั่งซื้อสินค้าจาก Teeneejj.')
-                            ->subject('คำสั่งซื้อสินค้าจาก Teeneejj');
-
-                            //echo 'Confirmation email after registration is completed.';
-                        });
+                        
 
 
 
