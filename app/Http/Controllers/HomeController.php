@@ -314,13 +314,13 @@ class HomeController extends Controller
             $data_toview['order_detai1'] = $order_detail;
             $data_toview['datatime'] = date("d-m-Y H:i:s");
 
-            $email_sender   = 'kim.kundad@gmail.com';
+            $email_sender   = 'teeneejj@gmail.com';
             $email_pass     = 'qwer1234009';
 
         /*    $email_sender   = 'info@acmeinvestor.com';
             $email_pass     = 'Iaminfoacmeinvestor';  */
           //  $email_to       =  'siri@sirispace.com';
-            $email_to       =  $request['email'];
+            $email_to       =  $request['email_order'];
             //echo $admins[$idx]['email'];
             // Backup your default mailer
             $backup = \Mail::getSwiftMailer();
