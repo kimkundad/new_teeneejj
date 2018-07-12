@@ -11,6 +11,19 @@
                   <h3>About</h3>
                   <ul>
                       <li><a href="{{url('/presentation')}}">{{ trans('message.category') }}</a></li>
+
+                      @if (Auth::guest())
+
+                      <li><a href="{{url('/login')}}">{{ trans('message.signin') }}</a></li>
+
+
+                      @else
+
+                      <li>{{ substr(Auth::user()->name,0,15) }}</li>
+
+                      @endif
+
+
                       <li><a href="{{url('/article')}}">{{ trans('message.article') }}</a></li>
 
                       <li><a href="{{url('/contact_us')}}">{{ trans('message.payment') }}</a></li>
