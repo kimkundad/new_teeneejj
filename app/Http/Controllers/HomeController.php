@@ -9,6 +9,7 @@ use App\category;
 use App\product;
 use App\bank;
 use App\wishlist;
+use App\pay_order;
 use App\order;
 use App\order_detail;
 use Illuminate\Support\Facades\DB;
@@ -151,6 +152,13 @@ class HomeController extends Controller
       // return redirect(url('booking_cars'));
     }
 
+    public function confirm_payment(){
+
+      $bank = bank::all();
+      $data['bank'] = $bank;
+      return view('confirm_payment', $data);
+    }
+
 
     public function buy_item(Request $request){
 
@@ -176,6 +184,167 @@ class HomeController extends Controller
      //  dd(Session::get('cart'));
        // return redirect(url('booking_cars'));
      }
+
+    public function add_confirm_payment(Request $request){
+
+      $image = $request->file('files');
+
+      if($image == NULL){
+
+        $this->validate($request, [
+                'name_pay' => 'required',
+                'phone_pay' => 'required',
+                'no_pay' => 'required',
+                'money_pay' => 'required',
+                'bank' => 'required',
+                'day_pay' => 'required',
+                'time_pay' => 'required',
+                'message_pay' => 'required'
+            ]);
+
+
+       $package = new pay_order();
+       $package->name_pay = $request['name_pay'];
+       $package->phone_pay = $request['phone_pay'];
+       $package->no_pay = $request['no_pay'];
+       $package->money_pay = $request['money_pay'];
+       $package->bank = $request['bank'];
+       $package->day_pay = $request['day_pay'];
+       $package->time_pay = $request['time_pay'];
+       $package->message_pay = $request['message_pay'];
+       $package->save();
+
+      }else{
+
+        $this->validate($request, [
+                'files' => 'required|max:8048',
+                'name_pay' => 'required',
+                'phone_pay' => 'required',
+                'no_pay' => 'required',
+                'money_pay' => 'required',
+                'bank' => 'required',
+                'day_pay' => 'required',
+                'time_pay' => 'required',
+                'message_pay' => 'required'
+            ]);
+
+            $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+
+        $destinationPath = asset('assets/image/payment/');
+        $img = Image::make($image->getRealPath());
+        $img->resize(800, 533, function ($constraint) {
+        $constraint->aspectRatio();
+      })->save('assets/image/payment/'.$input['imagename']);
+
+
+            $package = new pay_order();
+            $package->name_pay = $request['name_pay'];
+            $package->phone_pay = $request['phone_pay'];
+            $package->no_pay = $request['no_pay'];
+            $package->money_pay = $request['money_pay'];
+            $package->bank = $request['bank'];
+            $package->day_pay = $request['day_pay'];
+            $package->time_pay = $request['time_pay'];
+            $package->message_pay = $request['message_pay'];
+            $package->files_pay = $input['imagename'];
+            $package->save();
+
+      }
+
+      $the_id = $package->id;
+      $pay = pay_order::find($the_id);
+
+
+
+
+
+
+
+
+
+
+
+      // send email
+          $data_toview = array();
+        //  $data_toview['pathToImage'] = "assets/image/email-head.jpg";
+          date_default_timezone_set("Asia/Bangkok");
+          $data_toview['name_pay'] = $pay->name_pay;
+          $data_toview['phone_pay'] = $pay->phone_pay;
+          $data_toview['no_pay'] = $pay->no_pay;
+          $data_toview['money_pay'] = $pay->money_pay;
+          $data_toview['bank'] = $pay->bank;
+          $data_toview['day_pay'] = $pay->day_pay;
+          $data_toview['time_pay'] = $pay->time_pay;
+          $data_toview['message_pay'] = $pay->message_pay;
+          $data_toview['files_pay'] = $pay->files_pay;
+
+
+          $email_sender   = 'teeneejj@gmail.com';
+          $email_pass     = 'qwer1234009';
+
+      /*    $email_sender   = 'info@acmeinvestor.com';
+          $email_pass     = 'Iaminfoacmeinvestor';  */
+        //  $email_to       =  'siri@sirispace.com';
+
+          //echo $admins[$idx]['email'];
+          // Backup your default mailer
+          $backup = \Mail::getSwiftMailer();
+
+          try{
+
+                      //https://accounts.google.com/DisplayUnlockCaptcha
+                      // Setup your gmail mailer
+                      $transport = new \Swift_SmtpTransport('smtp.gmail.com', 465, 'SSL');
+                      $transport->setUsername($email_sender);
+                      $transport->setPassword($email_pass);
+
+                      // Any other mailer configuration stuff needed...
+                      $gmail = new Swift_Mailer($transport);
+
+                      // Set the mailer as gmail
+                      \Mail::setSwiftMailer($gmail);
+
+
+
+                      //dd($data['emailto']);
+                      $data['sender'] = $email_sender;
+                      //Sender dan Reply harus sama
+
+
+
+                      Mail::send('mail.ยฟั', $data_toview, function($message) use ($data)
+                      {
+                          $message->from($data['sender'], 'แจ้งการชำระเงิน Teeneejj');
+                          $message->to($data['sender'])
+                          ->replyTo($data['sender'], 'แจ้งการชำระเงิน Teeneejj.')
+                          ->subject('แจ้งการชำระเงิน Teeneejj');
+
+                          //echo 'Confirmation email after registration is completed.';
+                      });
+
+
+
+          }catch(\Swift_TransportException $e){
+              $response = $e->getMessage() ;
+              echo $response;
+
+          }
+
+
+          // Restore your original mailer
+          Mail::setSwiftMailer($backup);
+          // send email
+
+
+
+
+
+      return redirect(url('admin/success_payment/'))->with('add_success','คุณทำการเพิ่มอสังหา สำเร็จ');
+
+
+    }
+
+
 
 
     public function updateCart(Request $request)
@@ -213,6 +382,12 @@ class HomeController extends Controller
    public function cart(){
 
      return view('cart');
+
+   }
+
+   public function success_payment(){
+
+     return view('success_payment');
 
    }
 

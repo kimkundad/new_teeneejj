@@ -41,6 +41,13 @@ Route::post('/updateCart', 'HomeController@updateCart');
 
 Route::get('/google', 'HomeController@google');
 
+Route::get('/success_payment', 'HomeController@success_payment');
+
+
+Route::get('/confirm_payment', 'HomeController@confirm_payment');
+
+Route::post('/add_confirm_payment', 'HomeController@add_confirm_payment');
+
 Route::get('/all_shop', 'HomeController@all_shop');
 
 Route::get('/article', 'HomeController@article');

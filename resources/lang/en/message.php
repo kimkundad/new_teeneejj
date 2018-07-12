@@ -59,4 +59,5 @@ return [
     'cerrency' => 'baht',
     'sub_title_home_pro' => 'New product Unique',
     'sub_title_home_2_pro' => 'New products change every Monday. Quick purchase orders.',
+    'payment' => 'payment',
 ];

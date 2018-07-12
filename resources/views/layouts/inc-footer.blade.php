@@ -13,7 +13,7 @@
                       <li><a href="{{url('/presentation')}}">{{ trans('message.category') }}</a></li>
                       <li><a href="{{url('/article')}}">{{ trans('message.article') }}</a></li>
 
-
+                      <li><a href="{{url('/contact_us')}}">{{ trans('message.payment') }}</a></li>
                        <li><a href="{{url('/contact_us')}}">{{ trans('message.contact_us') }}</a></li>
                   </ul>
               </div>
