@@ -312,7 +312,7 @@ class HomeController extends Controller
 
 
 
-                      Mail::send('mail.ยฟั', $data_toview, function($message) use ($data)
+                      Mail::send('mail.pay', $data_toview, function($message) use ($data)
                       {
                           $message->from($data['sender'], 'แจ้งการชำระเงิน Teeneejj');
                           $message->to($data['sender'])
