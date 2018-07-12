@@ -56,7 +56,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
             <div class="step">
 
                 <div id="message-contact"></div>
-                <form method="post" id="contactform" action="{{url('add_confirm_payment')}}">
+                <form method="post" id="contactform" action="{{url('add_confirm_payment')}}" enctype="multipart/form-data">
                   {{ csrf_field() }}
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
