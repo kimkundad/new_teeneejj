@@ -84,7 +84,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
                         <div class="col-md-6 col-sm-6">
                             <div class="form-group">
                                 <label>ยอดโอน</label>
-                                <input type="email" id="money_pay" name="money_pay" class="form-control" >
+                                <input type="text" id="money_pay" name="money_pay" class="form-control" >
                             </div>
                         </div>
 
