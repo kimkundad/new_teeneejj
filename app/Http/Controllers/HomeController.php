@@ -216,6 +216,8 @@ class HomeController extends Controller
 
       }else{
 
+        $image = $request->file('files');
+
         $this->validate($request, [
                 'files' => 'required|max:8048',
                 'name_pay' => 'required',
@@ -227,6 +229,8 @@ class HomeController extends Controller
                 'time_pay' => 'required',
                 'message_pay' => 'required'
             ]);
+
+
 
             $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
 
