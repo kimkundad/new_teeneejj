@@ -339,7 +339,7 @@ class HomeController extends Controller
 
 
 
-      return redirect(url('admin/success_payment/'))->with('add_success','คุณทำการเพิ่มอสังหา สำเร็จ');
+      return redirect(url('success_payment/'))->with('add_success','คุณทำการเพิ่มอสังหา สำเร็จ');
 
 
     }
