@@ -13,6 +13,7 @@ use App\pay_order;
 use App\order;
 use App\order_detail;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\ImageManagerStatic as Image;
 use Mail;
 use Swift_Transport;
 use Swift_Message;
