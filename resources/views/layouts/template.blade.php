@@ -16,7 +16,7 @@
     <meta property="og:url"           content="https://teeneejj.com" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="ร้านค้าและสินค้า ในตลาดนัดสวนจตุจักร" />
-    <meta property="og:image"         content="https://teeneejj.com/admin/cusimage/homepage-share.jpg" />
+    <meta property="og:image"         content="https://teeneejj.com/assets/image/cusimage/homepage-share.jpg" />
     <meta property="og:description"   content="ร้านค้าและสินค้า ในตลาดนัดสวนจตุจักร รวบรวมร้านค้าที่คัดเลือดมาแล้วอย่างดี จากทั้งหมด 8,000 ร้านค้า" />
     <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="314" />
