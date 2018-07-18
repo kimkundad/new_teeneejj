@@ -26,7 +26,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 
                 <div class="tab-content">
 
-                    <form name="search" method="post" action="{{url('search')}}">
+                    <form name="search" method="GET" action="{{url('search')}}">
                       {{ csrf_field() }}
                     <div class="tab-pane active" id="tours">
                     <h3 style="color:#444444; float:left;">ค้นหาสิ่งที่ต้องการ ใน ตลาดนัดสวนจตุจักร</h3>

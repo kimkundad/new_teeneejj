@@ -1264,7 +1264,7 @@ class HomeController extends Controller
           ->orWhere('keyword2', 'LIKE', "%$search%")
           ->count();
 
-    if($get_user_count > 0){
+  
 
       $options = DB::table('product')->select(
           'product.*'
@@ -1287,19 +1287,19 @@ class HomeController extends Controller
                   ->orWhere('keyword2', 'LIKE', '%'.$search.'%')
                   ->count();
 
-    }else{
-      $shop_count = 0;
-      $options = null;
-      $shop = null;
-    }
+
+
+
 
     //dd($options);
+      $options->appends($request->only('search'));
 
       $data['shop_count'] = $shop_count;
       $data['shop'] = $shop;
       $data['options'] = $options;
       $data['header'] = "ค้นหาสิ่งที่ต้องการ ใน ตลาดนัดสวนจตุจักร";
-      $options->appends($request->only('search'));
+
+
       //$options= compact('options');
       //dd($request->only('search'));
       //dd($options);
