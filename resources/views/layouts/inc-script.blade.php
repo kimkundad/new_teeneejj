@@ -45,7 +45,7 @@ $('input').iCheck({
 
 
 
-        <script src="{{url('js/bootstrap-notify.js')}}"></script>
+        <script src="{{url('js/bootstrap-notify.js?v2')}}"></script>
 
 
 

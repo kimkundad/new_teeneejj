@@ -33,6 +33,10 @@ Route::get('/contact_us', 'HomeController@contact_us');
 
 Route::get('/history', 'HomeController@history');
 
+Route::post('/sent_myproduct', 'HomeController@sent_myproduct');
+
+Route::post('/add_subscribe', 'HomeController@add_subscribe');
+
 Route::get('/cart', 'HomeController@cart');
 
 Route::get('deleteCart/{id}', 'HomeController@deleteCart');

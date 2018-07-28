@@ -11,7 +11,10 @@ use App\bank;
 use App\wishlist;
 use App\pay_order;
 use App\order;
+use App\subscribe;
+use App\getproduct;
 use App\order_detail;
+use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\ImageManagerStatic as Image;
 use Mail;
@@ -158,6 +161,81 @@ class HomeController extends Controller
       $bank = bank::all();
       $data['bank'] = $bank;
       return view('confirm_payment', $data);
+    }
+
+
+    public function add_subscribe(Request $request){
+
+      $email = $request->input('email');
+
+     // $check_mail = subscribe::find($email)->get();
+      //subscribes
+      
+
+
+      $check_mail = DB::table('subscribes')
+              ->where('email', $email)
+              ->count();
+
+
+     // dd($check_mail);
+
+
+      if($check_mail != 0){
+        
+         return response()->json([
+          'data' => [
+            'status' => 1002
+          ]
+        ]);
+
+      }else{
+
+
+       $package = new subscribe();
+       $package->email = $request['email'];
+       $package->save();
+
+
+       return response()->json([
+          'data' => [
+            'status' => 1001
+          ]
+        ]);
+
+
+      }
+
+
+
+
+    }
+
+
+    public function sent_myproduct(Request $request){
+
+      $product = $request->input('product');
+      $email = $request->input('email');
+      $tel = $request->input('tel');
+
+      if($product == null || $email == null || $tel == null){
+        return redirect(url('/?#sent_myproduct'))->with('sent_myproduct_is_null','คุณทำการเพิ่มอสังหา สำเร็จ');
+      }
+
+      
+
+       $package = new getproduct();
+       $package->product = $request['product'];
+       $package->email = $request['email'];
+       $package->phone = $request['tel'];
+       $package->save();
+
+       $the_id = $package->id;
+
+       return redirect(url('/'))->with('add_success_product','คุณทำการเพิ่มอสังหา สำเร็จ');
+
+
+
     }
 
 

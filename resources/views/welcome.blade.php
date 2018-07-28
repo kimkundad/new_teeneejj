@@ -221,6 +221,107 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 </div>
 <!-- End container -->
 
+
+
+<hr id="sent_myproduct">
+
+
+
+
+<div class="white_bg" style="background: #f9f9f9;">
+      <div class="container margin_60">
+
+        <div class="row">
+
+          <div class="col-md-6">
+
+            <div class="feature_home" style="margin-bottom: 0px;">
+
+                        <p style="font-size: 18px;">
+                         <span  style="font-weight: 700; color: #e04f67;">สำหรับผู้ต้องการทำธุรกิจ</span> ต้องการสินค้าจำนวนมาก<br> เรามีสินค้ากว่า 300,000 ชนิด <br>เตรียมไว้ให้คุณในราคาที่เหมาะสม
+                         <h3 style="margin-bottom: 0px; margin-top: 10px;"><span>แล้วเราจะรีบติดต่อกลับ</span><h3>
+                       </p>
+                       <br>
+
+                       <style>
+                       .input-group a {
+                            background-color: #333;
+                            color: #fff;
+                            border-color: #333;
+                        }
+                        .input-group a:hover {
+                             background-color: #e04f67;
+                             color: #fff;
+                             border-color: #e04f67;
+                         }
+                       </style>
+
+                       <form id="add_subscribe" method="get" >
+                          <div class="input-group">
+                            <input type="text" id="subscribe_email" name="email" placeholder="Enter your Email" class="form-control style-2" required>
+
+                            <!-- Write here your end point -->
+                            <span  class="input-group-btn">
+                          <a  class="btn add_subscribe_btn" id="add_subscribe_btn"  style="margin-left:0;">Get Subscribe</a >
+                          </span>
+                              </div>
+                          <!-- /input-group -->
+                        </form>
+
+
+                  </div>
+
+          </div>
+
+
+          <div class="col-md-6">
+
+            <div class=""  style="margin-bottom: 0px;">
+
+
+                         <h2 style="font-weight: 700; font-size: 25px; margin-top: 0px; "><span>อยากจะได้สินค้าอะไร บอกเรา เราหาให้</span></h2>
+
+                       <br>
+
+                       <form  method="POST" action="sent_myproduct" enctype="multipart/form-data">
+                                        
+                                          {{ csrf_field() }}
+
+                         <div class="input-group input-group-icon" >
+                            <span class="input-group-addon">
+                              <span class="icon"><i class="icon-cart "></i></span>
+                            </span>
+                            <input type="text" class="form-control" id="con_product" name="product" value="{{ old('product') }}" placeholder="สินค้าที่ต้องการ" required>
+                          </div>
+
+
+                          <div class="input-group input-group-icon" style="margin-top: 17px;">
+                            <span class="input-group-addon">
+                              <span class="icon"><i class="icon-mail-7"></i></span>
+                            </span>
+                            <input type="text" class="form-control" id="con_email" name="email" value="{{ old('email') }}" placeholder="อีเมล์ติดต่อกลับ" required>
+                          </div>
+
+                          <div class="input-group input-group-icon" style="margin-top: 17px;">
+                            <span class="input-group-addon">
+                              <span class="icon"><i class="icon-phone-3"></i></span>
+                            </span>
+                            <input type="text" class="form-control" id="con_tel" name="tel" value="{{ old('tel') }}" placeholder="เบอร์โทรติดต่อกลับ" required>
+                          </div>
+                          <br>
+                          <button type="submit" id="add_message_btn" class="btn_1 add_message_btn">ส่งข้อมูล</button>
+                        </form>
+
+
+                  </div>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
 <div class="white_bg">
   <div class="container margin_60">
     <div class="main_title">
@@ -450,5 +551,242 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 @section('scripts')
 
 
+@if ($message = Session::get('sent_myproduct_is_null'))
+<script type="text/javascript">
+
+
+    $(function(){
+      // bind change event to select
+
+      $.notify({
+          // options
+          icon: 'icon_set_1_icon-77',
+          title: "<h4>กรอกข้อมูลไม่ครบค่ะ</h4> ",
+          message: "กรอกข้อมูลให้ครบทุกช่องด้วยนะค่ะ เพื่อความสะดวกในการติดต่อกลับ. "
+        },{
+          // settings
+          type: 'danger',
+          delay: 5000,
+          timer: 3000,
+          z_index: 9999,
+          showProgressbar: false,
+          placement: {
+            from: "bottom",
+            align: "right"
+          },
+          animate: {
+            enter: 'animated bounceInUp',
+            exit: 'animated bounceOutDown'
+          },
+        });
+      
+
+    });
+
+</script>
+@endif
+
+
+@if ($message = Session::get('add_success_product'))
+<script type="text/javascript">
+
+
+    $(function(){
+      // bind change event to select
+
+      $.notify({
+          // options
+          icon: 'icon_set_1_icon-57',
+          title: "<h4>ข้อความถูกส่งเรียบร้อยแล้ว</h4> ",
+          message: "เจ้าหน้าที่จะรีบทำการติดต่อกลับไปหาท่านโดยไวที่สุด เมื่อเราพบสินค้าที่ท่านต้องการแล้ว. "
+        },{
+          // settings
+          type: 'info',
+          delay: 5000,
+          timer: 3000,
+          z_index: 9999,
+          showProgressbar: false,
+          placement: {
+            from: "bottom",
+            align: "right"
+          },
+          animate: {
+            enter: 'animated bounceInUp',
+            exit: 'animated bounceOutDown'
+          },
+        });
+      
+
+    });
+
+</script>
+@endif
+
+
+
+<script type="text/javascript">
+
+ $('.add_subscribe_btn').click(function(e){
+       e.preventDefault();
+     //  var username = $('form#cutproduct input[name=id]').val();
+
+
+     var $form = $(this).closest("form#add_subscribe");
+     var formData =  $form.serializeArray();
+
+
+     var email =  $form.find("#subscribe_email").val();
+
+     //Checkemail(email);
+
+     var emailFilter=/^.+@.+\..{2,3}$/;
+
+     
+
+    
+
+
+     if (!(emailFilter.test(email))) {
+
+      console.log(email);
+           
+            $.notify({
+          // options
+          icon: 'icon_set_1_icon-77',
+          title: "<h4>รูปแบบ Email ของท่านไม่ถูกต้องค่ะ</h4> ",
+          message: "กรุณาทำการตรวจสอบ Email ของท่านด้วย. "
+        },{
+          // settings
+          type: 'danger',
+          delay: 5000,
+          timer: 3000,
+          z_index: 9999,
+          showProgressbar: false,
+          placement: {
+            from: "bottom",
+            align: "right"
+          },
+          animate: {
+            enter: 'animated bounceInUp',
+            exit: 'animated bounceOutDown'
+          },
+        });
+
+           return false;
+     }
+
+
+       if(email){
+         $.ajax({
+           type: "POST",
+           url: "{{url('add_subscribe')}}",
+           headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+           data: "email="+email,
+        success: function(data){
+
+          console.log(data.data.status);
+
+            if(data.data.status == 1001) {
+
+
+               $("#subscribe_email").val('');
+
+                 
+            $.notify({
+          // options
+          icon: 'icon_set_1_icon-57',
+          title: "<h4>ข้อความถูกส่งเรียบร้อยแล้ว</h4> ",
+          message: "เจ้าหน้าที่จะรีบทำการติดต่อกลับไปหาท่านโดยไวที่สุด เมื่อเราพบสินค้าที่ท่านต้องการแล้ว. "
+        },{
+          // settings
+          type: 'info',
+          delay: 5000,
+          timer: 3000,
+          z_index: 9999,
+          showProgressbar: false,
+          placement: {
+            from: "bottom",
+            align: "right"
+          },
+          animate: {
+            enter: 'animated bounceInUp',
+            exit: 'animated bounceOutDown'
+          },
+        });
+
+
+
+
+             } else {
+
+              
+
+
+ $.notify({
+          // options
+          icon: 'icon_set_1_icon-77',
+          title: "<h4>อีเมลของท่านอยู่ในระบบอยู่แล้ว</h4> ",
+          message: "email ของท่านอยุ่ในระบบอยู่แล้ว กรุณาติดต่อเราในช่องทางอื่น. "
+        },{
+          // settings
+          type: 'danger',
+          delay: 5000,
+          timer: 3000,
+          z_index: 9999,
+          showProgressbar: false,
+          placement: {
+            from: "bottom",
+            align: "right"
+          },
+          animate: {
+            enter: 'animated bounceInUp',
+            exit: 'animated bounceOutDown'
+          },
+        });
+
+
+
+             }
+           },
+
+           failure: function(errMsg) {
+             alert(errMsg.Msg);
+           }
+         });
+       }else{
+
+         $.notify({
+          // options
+          icon: 'icon_set_1_icon-77',
+          title: "<h4>กรอกข้อมูลไม่ครบค่ะ</h4> ",
+          message: "กรอกข้อมูลให้ครบทุกช่องด้วยนะค่ะ เพื่อความสะดวกในการติดต่อกลับ. "
+        },{
+          // settings
+          type: 'danger',
+          delay: 5000,
+          timer: 3000,
+          z_index: 9999,
+          showProgressbar: false,
+          placement: {
+            from: "bottom",
+            align: "right"
+          },
+          animate: {
+            enter: 'animated bounceInUp',
+            exit: 'animated bounceOutDown'
+          },
+        });
+
+
+       }
+
+     });
+
+
+
+
+
+
+ </script>
 
 @stop('scripts')

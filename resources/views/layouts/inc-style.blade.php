@@ -77,5 +77,19 @@ body {
 .bobo{
 
 }
+.customized_notify.alert-info{
+  text-align:center;background-color:#fff;width:310px;
+  line-height:1.4;border:0;color:#777;padding:20px;-webkit-box-shadow:0 0 30px 0 rgba(0,0,0,.1);
+  -moz-box-shadow:0 0 30px 0 rgba(0,0,0,.1);box-shadow:0 0 30px 0 rgba(0,0,0,.1)}
+  .customized_notify.alert-info h4{color:#333;font-size:14px;margin-bottom:5px;text-transform:uppercase;font-weight:700}
+  .customized_notify i span{font-size:55px;margin-bottom:0;color:#6C6;display:inline-block}
+  .customized_notify i span img{border:5px solid #ededed;width:80px;height:auto;margin-bottom:10px;-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%}
 
+  .customized_notify.alert-danger{
+  text-align:center;background-color:#fff;width:310px;
+  line-height:1.4;border:0;color:#777;padding:20px;-webkit-box-shadow:0 0 30px 0 rgba(0,0,0,.1);
+  -moz-box-shadow:0 0 30px 0 rgba(0,0,0,.1);box-shadow:0 0 30px 0 rgba(0,0,0,.1)}
+  .customized_notify.alert-danger h4{color:#333;font-size:14px;margin-bottom:5px;text-transform:uppercase;font-weight:700}
+  .customized_notify.alert-danger i span{font-size:55px;margin-bottom:0;color:red;display:inline-block}
+[data-notify=progressbar]{margin-bottom:0;position:absolute;bottom:0;left:0;width:100%;height:5px}
 </style>
