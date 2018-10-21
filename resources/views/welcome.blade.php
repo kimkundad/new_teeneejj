@@ -112,7 +112,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 
   <br><hr>
   <br>
-  <div class="main_title">
+  <div class="main_title" style="margin-bottom: -40px;">
     <h2> <span style="font-size: 28px;"> รับซื้อสินค้าค้าง stock <!--{{ trans('message.sub_title_home_pro') }} --></span> </h2>
 
     <br>
@@ -260,11 +260,11 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 
                        <form id="add_subscribe" method="get" >
                           <div class="input-group">
-                            <input type="text" id="subscribe_email" name="email" placeholder="Enter your Email" class="form-control style-2" required>
+                            <input type="text" id="subscribe_email" name="email" placeholder="Enter your Email or Phone number" class="form-control style-2" required>
 
                             <!-- Write here your end point -->
                             <span  class="input-group-btn">
-                          <a  class="btn add_subscribe_btn" id="add_subscribe_btn"  style="margin-left:0;">Get Subscribe</a >
+                          <a  class="btn add_subscribe_btn" id="add_subscribe_btn"  style="margin-left:0;">ส่งอีเมลหรือเบอร์ติดต่อ</a >
                           </span>
                               </div>
                           <!-- /input-group -->
@@ -323,6 +323,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 
 
           <div class="col-md-12">
+            <br /><br />
             <img src="{{url('assets/image/ozeol-create.jpg')}}" class="img-responsive" />
           </div>
 
