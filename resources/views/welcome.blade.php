@@ -107,16 +107,16 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
   <!-- End row -->
   <br>
   <p class="text-center nopadding">
-    <a href="{{url('all_shop')}}" class="btn_1 medium">{{ trans('message.total_shop') }} ({{$shop_count}})  </a>
+    <a href="{{url('all_shop')}}" class="btn_1 medium"> {{ trans('message.total_shop') }} ({{$shop_count}})  </a>
   </p>
 
   <br><hr>
   <br>
   <div class="main_title">
-    <h2> <span>{{ trans('message.sub_title_home_pro') }} </span> </h2>
+    <h2> <span style="font-size: 28px;"> รับซื้อสินค้าค้าง stock <!--{{ trans('message.sub_title_home_pro') }} --></span> </h2>
 
     <br>
-    <p style="font-size:24px;">{{ trans('message.sub_title_home_2_pro') }}</p>
+    <p style="font-size:20px;">เราเสนอราคาที่เป็นธรรมและเป็นทางออกที่รวดเร็วสำหรับคุณ <!-- {{ trans('message.sub_title_home_2_pro') }}--></p>
   </div>
 
   <style>
@@ -171,7 +171,9 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 
   <div class="row">
 
-    @if($products)
+
+
+  <!--  @if($products)
     @foreach($products as $product)
 
     <div class="col-md-3 col-sm-6">
@@ -210,7 +212,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
     </div>
 
     @endforeach
-    @endif
+    @endif -->
 
 
 
@@ -238,8 +240,8 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
             <div class="feature_home" style="margin-bottom: 0px;">
 
                         <p style="font-size: 18px;">
-                         <span  style="font-weight: 700; color: #e04f67;">สำหรับผู้ต้องการทำธุรกิจ</span> ต้องการสินค้าจำนวนมาก<br> เรามีสินค้ากว่า 300,000 ชนิด <br>เตรียมไว้ให้คุณในราคาที่เหมาะสม
-                         <h3 style="margin-bottom: 0px; margin-top: 10px;"><span>แล้วเราจะรีบติดต่อกลับ</span><h3>
+                         <span  style="font-weight: 700; color: #e04f67;">สำหรับผู้ที่ต้องการเคลีย stock ที่ค้างอยู่</span><br /> สามารถติดต่อเรามาได้ทันที <br />เราเตรียมราคาที่เหมาะสมไว้ให้ <br />
+                         <h3 style="margin-bottom: 0px; margin-top: 10px;"><span>และพร้อมจัดการสินค้าค้าง stock ให้ทันที</span><h3>
                        </p>
                        <br>
 
@@ -284,7 +286,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
                        <br>
 
                        <form  method="POST" action="sent_myproduct" enctype="multipart/form-data">
-                                        
+
                                           {{ csrf_field() }}
 
                          <div class="input-group input-group-icon" >
@@ -316,6 +318,12 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
                   </div>
 
 
+          </div>
+
+
+
+          <div class="col-md-12">
+            <img src="{{url('assets/image/ozeol-create.jpg')}}" class="img-responsive" />
           </div>
 
         </div>
@@ -579,7 +587,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
             exit: 'animated bounceOutDown'
           },
         });
-      
+
 
     });
 
@@ -615,7 +623,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
             exit: 'animated bounceOutDown'
           },
         });
-      
+
 
     });
 
@@ -641,15 +649,15 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 
      var emailFilter=/^.+@.+\..{2,3}$/;
 
-     
 
-    
+
+
 
 
      if (!(emailFilter.test(email))) {
 
       console.log(email);
-           
+
             $.notify({
           // options
           icon: 'icon_set_1_icon-77',
@@ -691,7 +699,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 
                $("#subscribe_email").val('');
 
-                 
+
             $.notify({
           // options
           icon: 'icon_set_1_icon-57',
@@ -719,7 +727,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 
              } else {
 
-              
+
 
 
  $.notify({
