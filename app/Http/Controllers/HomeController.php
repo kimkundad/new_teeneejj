@@ -170,7 +170,7 @@ class HomeController extends Controller
 
      // $check_mail = subscribe::find($email)->get();
       //subscribes
-      
+
 
 
       $check_mail = DB::table('subscribes')
@@ -182,7 +182,7 @@ class HomeController extends Controller
 
 
       if($check_mail != 0){
-        
+
          return response()->json([
           'data' => [
             'status' => 1002
@@ -222,7 +222,7 @@ class HomeController extends Controller
         return redirect(url('/?#sent_myproduct'))->with('sent_myproduct_is_null','คุณทำการเพิ่มอสังหา สำเร็จ');
       }
 
-      
+
 
        $package = new getproduct();
        $package->product = $request['product'];
@@ -1342,7 +1342,7 @@ class HomeController extends Controller
           ->orWhere('keyword2', 'LIKE', "%$search%")
           ->count();
 
-  
+
 
       $options = DB::table('product')->select(
           'product.*'

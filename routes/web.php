@@ -99,7 +99,8 @@ Route::post('del_wishlist', 'HomeController@del_wishlist');
 
 Route::group(['middleware' => 'admin'], function() {
 
-
+	Route::get('admin/first_shop', 'ShopController@first_shop');
+	Route::post('add_sort_shop', 'ShopController@add_sort_shop');
 
 	Route::resource('admin/user', 'StudentControlle');
 	Route::resource('admin/category', 'CategoryController');

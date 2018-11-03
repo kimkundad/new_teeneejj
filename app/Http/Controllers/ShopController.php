@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Auth;
 use App\category;
 use App\product;
@@ -37,6 +38,44 @@ class ShopController extends Controller
 
 
         return view('admin.shop.index', $data);
+    }
+
+    public function first_shop(){
+
+      $cat = DB::table('product')->select(
+            'product.*',
+            'product.id as id_q',
+            'product.name as name_q',
+            'category.*'
+            )
+            ->leftjoin('category', 'category.id',  'product.category_id')
+            ->where('product.first', 1)
+            ->get();
+
+      $data['s'] = 1;
+      $data['objs'] = $cat;
+      $data['datahead'] = "ร้านค้าทั้งหมด";
+
+
+      return view('admin.shop.first_shop', $data);
+
+    }
+
+    public function add_sort_shop(Request $request){
+
+      $input_sort = $request['input_sort'];
+      $id = $request['ids'];
+
+
+      $package = product::find($id);
+      $package->priority = $input_sort;
+      $package->save();
+
+
+      return Response::json([
+          'status' => 1001
+      ], 200);
+
     }
 
     public function post_status_order(Request $request){

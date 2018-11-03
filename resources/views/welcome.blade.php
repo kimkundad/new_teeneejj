@@ -112,7 +112,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 
   <br><hr>
   <br>
-  <div class="main_title" style="margin-bottom: -40px;">
+  <div class="main_title">
     <h2> <span style="font-size: 28px;"> รับซื้อสินค้าค้าง stock <!--{{ trans('message.sub_title_home_pro') }} --></span> </h2>
 
     <br>
@@ -173,7 +173,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 
 
 
-  <!--  @if($products)
+    @if($products)
     @foreach($products as $product)
 
     <div class="col-md-3 col-sm-6">
@@ -212,7 +212,7 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
     </div>
 
     @endforeach
-    @endif -->
+    @endif
 
 
 

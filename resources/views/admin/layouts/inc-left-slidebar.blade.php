@@ -53,6 +53,13 @@ html.no-overflowscrolling .nano > .nano-pane > .nano-slider {
 										</a>
 									</li>
 
+                  <li {{ (Request::is('admin/first_shop*') ? 'class=nav-expanded' : '') }} >
+										<a href="{{url('admin/first_shop/')}}"  >
+											<i class="fa fa-life-ring" aria-hidden="true"></i>
+											<span>ร้านค้า หน้าแรก</span>
+										</a>
+									</li>
+
                   <li {{ (Request::is('admin/order*') ? 'class=nav-expanded' : '') }} >
 										<a href="{{url('admin/order/')}}"  >
 											<i class="fa fa-external-link" aria-hidden="true"></i>
