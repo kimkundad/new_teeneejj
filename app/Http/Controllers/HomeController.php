@@ -40,6 +40,12 @@ class HomeController extends Controller
      public function index()
    {
 
+
+     $text = DB::table('text_settings')
+            ->where('id', 1)
+            ->first();
+     $data['text'] = $text;
+
      $products = DB::table('proshops')->select(
            'proshops.*'
            )

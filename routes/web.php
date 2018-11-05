@@ -99,6 +99,9 @@ Route::post('del_wishlist', 'HomeController@del_wishlist');
 
 Route::group(['middleware' => 'admin'], function() {
 
+	Route::get('admin/set_text', 'TextSettingController@set_text');
+	Route::post('admin/set_text/{id}', 'TextSettingController@up_set_text');
+
 	Route::get('admin/first_shop', 'ShopController@first_shop');
 	Route::post('add_sort_shop', 'ShopController@add_sort_shop');
 	Route::post('admin/search_shop', 'ShopController@search_shop');

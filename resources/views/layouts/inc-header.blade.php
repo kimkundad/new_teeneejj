@@ -29,7 +29,11 @@
                           </div><!-- End Dropdown access -->
                           @else
                           <div class="dropdown dropdown-access">
-                              <a href="#" class="dropdown-toggle" id="access_link">{{ substr(Auth::user()->name,0,15) }}</a>
+                            @if(Auth::user()->is_admin == 1)
+                              <a href="{{url('admin/user')}}" class="dropdown-toggle" id="access_link">{{ substr(Auth::user()->name,0,15) }} controller</a>
+                            @else
+                            <a href="#" class="dropdown-toggle" id="access_link">{{ substr(Auth::user()->name,0,15) }}</a>
+                            @endif
 
                           </div><!-- End Dropdown access -->
                           @endif

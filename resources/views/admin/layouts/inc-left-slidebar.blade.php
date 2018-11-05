@@ -75,9 +75,9 @@ html.no-overflowscrolling .nano > .nano-pane > .nano-slider {
 									</li>
 
 
-                  <li {{ (Request::is('admin/contact_admin*') ? 'class=nav-expanded' : '') }} >
-										<a href="{{url('admin/contact_admin/')}}"  >
-											<i class="fa fa-envelope-o" aria-hidden="true"></i>
+                  <li {{ (Request::is('admin/set_text*') ? 'class=nav-expanded' : '') }} >
+										<a href="{{url('admin/set_text/')}}"  >
+											<i class="fa fa-anchor" aria-hidden="true"></i>
 											<span>จัดการข้อความ</span>
 										</a>
 									</li>

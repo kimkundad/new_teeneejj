@@ -52,12 +52,27 @@ TEENEEJJ - ตลาดนัดสวนจตุจักร
 
 <div class="container margin_60">
 
+  @if(trans('message.lang') == 'ไทย')
   <div class="main_title">
-    <h2> <span>{{ trans('message.sub_title_home') }} </span> </h2>
-
+    <h2> <span>{{$text->title_text_t}} </span> </h2>
     <br>
-    <p style="font-size:24px;">{{ trans('message.sub_title_home_2') }}</p>
+    <p style="font-size:24px;">{{$text->sub_title_text_t}}</p>
   </div>
+  @elseif(trans('message.lang') == 'Eng')
+  <div class="main_title">
+    <h2> <span>{{$text->title_text_e}} </span> </h2>
+    <br>
+    <p style="font-size:24px;">{{$text->sub_title_text_e}}</p>
+  </div>
+  @else
+  <div class="main_title">
+    <h2> <span>{{$text->title_text_c}} </span> </h2>
+    <br>
+    <p style="font-size:24px;">{{$text->sub_title_text_c}}</p>
+  </div>
+  @endif
+
+
 
   <div class="row">
 
