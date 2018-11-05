@@ -56,7 +56,7 @@
                       <form action="{{url('admin/search_shop')}}" method="POST" class="search nav-form col-md-4">
                         {{ csrf_field() }}
             						<div class="input-group input-search">
-            							<input type="text" class="form-control" name="search" id="q" placeholder="ค้นหา...">
+            							<input type="text" class="form-control" name="search" value="{{$search}}" placeholder="ค้นหา...">
             							<span class="input-group-btn">
             								<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
             							</span>
@@ -118,7 +118,7 @@
 
                   </tbody>
                 </table>
-                {{ $objs->links() }}
+
               </div>
             </section>
 

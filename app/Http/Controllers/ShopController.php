@@ -30,7 +30,7 @@ class ShopController extends Controller
               'category.*'
               )
               ->leftjoin('category', 'category.id',  'product.category_id')
-              ->get();
+              ->paginate(15);
 
         $data['s'] = 1;
         $data['objs'] = $cat;
@@ -39,6 +39,36 @@ class ShopController extends Controller
 
         return view('admin.shop.index', $data);
     }
+
+    public function search_shop(Request $request){
+
+      $this->validate($request, [
+        'search' => 'required'
+      ]);
+
+      $search = $request->get('search');
+
+
+      $cat = DB::table('product')->select(
+            'product.*',
+            'product.id as id_q',
+            'product.name as name_q',
+            'category.*'
+            )
+            ->leftjoin('category', 'category.id',  'product.category_id')
+            ->where('product.name', 'like', "%$search%")
+            ->get();
+
+      $data['s'] = 1;
+      $data['objs'] = $cat;
+      $data['datahead'] = "ร้านค้าทั้งหมด";
+      $data['search'] = $search;
+
+      return view('admin.shop.index_search', $data);
+
+    }
+
+
 
     public function first_shop(){
 
