@@ -114,7 +114,7 @@
 
                         <li>
                             <div class="dropdown dropdown-cart">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class=" icon-basket-1"></i>Cart ({{count(Session::get('cart'))}}) </a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class=" icon-basket-1"></i>Cart ({{count(array(Session::get('cart')))}}) </a>
 
                                 @if(Session::get('cart') != null)
 
